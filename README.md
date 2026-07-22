@@ -22,7 +22,7 @@
 
 - ✅ **Phase 1 — 기반 구축**: 프로젝트 스캐폴딩, i18n, Supabase 연동, 인증(가입/로그인/역할), 반응형 레이아웃(모바일 탭바), 랜딩 페이지
 - ✅ **Phase 2 — 설교 작성기** (핵심): 단계별 입력 마법사, AI 스트리밍 생성(SSE), 결과 뷰어/편집기, 다시 생성, 보관함(저장/조회/편집/삭제), DOCX·PDF·텍스트 내보내기, 역할별 사용량 제한
-- ⬜ **Phase 3 — 콘텐츠 라이브러리**
+- ✅ **Phase 3 — 콘텐츠 라이브러리**: 성경 66권 브라우징(구약/신약, 5개 언어 책 이름), 검색·필터(언어/유형/대상), 슬라이드 뷰어(스와이프·전체화면·3가지 테마), YouTube 임베드, PDF 링크, 조회수, 북마크, 샘플 시드 데이터
 - ⬜ **Phase 4 — 관리자 도구**
 - ⬜ **Phase 5 — 성도 기능 + 마감**
 
@@ -55,6 +55,7 @@ cp .env.example .env.local
 1. [supabase.com](https://supabase.com)에서 프로젝트 생성
 2. **SQL Editor**에서 [`supabase/schema.sql`](supabase/schema.sql) 전체를 붙여넣고 실행
    - 모든 테이블 + RLS 정책 + 신규 가입 트리거가 생성됩니다
+   - (선택) [`supabase/seed.sql`](supabase/seed.sql)을 실행하면 시연용 샘플 콘텐츠·묵상글이 추가됩니다
 3. **Authentication > Providers**에서 Email, Google OAuth 활성화
    - Google OAuth: 리디렉션 URL에 `https://<도메인>/auth/callback` 추가
 4. 첫 관리자 지정: SQL Editor에서 아래 실행
