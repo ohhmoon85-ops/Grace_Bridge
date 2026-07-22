@@ -1,0 +1,78 @@
+{
+  "Meta": {
+    "title": "GraceBridge — Plateforme de soutien pastoral",
+    "description": "Une plateforme multilingue qui aide les pasteurs à préparer leurs prédications et les fidèles à comprendre les Écritures."
+  },
+  "Common": {
+    "appName": "GraceBridge",
+    "loading": "Chargement...",
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "confirm": "Confirmer",
+    "back": "Retour",
+    "next": "Suivant",
+    "search": "Rechercher",
+    "language": "Langue",
+    "signIn": "Se connecter",
+    "signOut": "Se déconnecter",
+    "signUp": "S'inscrire",
+    "getStarted": "Commencer",
+    "comingSoon": "Bientôt disponible"
+  },
+  "Nav": {
+    "home": "Accueil",
+    "sermon": "Prédication",
+    "library": "Bibliothèque",
+    "devotion": "Méditation",
+    "profile": "Profil",
+    "admin": "Admin"
+  },
+  "Landing": {
+    "heroTagline": "Un partenaire IA pour la prédication",
+    "heroTitle": "Allégez la préparation et demeurez plus profondément dans la Parole",
+    "heroSubtitle": "GraceBridge est une plateforme pastorale multilingue qui aide les pasteurs à préparer leurs prédications et les fidèles à mieux comprendre les Écritures.",
+    "ctaPrimary": "Commencer gratuitement",
+    "ctaSecondary": "Découvrir",
+    "feature1Title": "Rédacteur de prédication IA",
+    "feature1Desc": "Choisissez le passage, la saison, l'auditoire et la durée, et construisez la structure de votre prédication, du plan aux questions d'application.",
+    "feature2Title": "Bibliothèque biblique",
+    "feature2Desc": "Parcourez des diaporamas, des vidéos et des ressources organisés selon la structure des 66 livres de la Bible.",
+    "feature3Title": "Cinq langues",
+    "feature3Desc": "Coréen, anglais, français, espagnol, allemand. L'interface et le contenu généré sont multilingues.",
+    "disclaimer": "Le contenu généré par l'IA sur cette plateforme est une référence pour aider à la préparation. Veuillez achever votre prédication finale par la prière, la méditation et une révision théologique.",
+    "previewBadge": "Aperçu"
+  },
+  "Auth": {
+    "loginTitle": "Bon retour",
+    "signupTitle": "Commencez avec GraceBridge",
+    "email": "E-mail",
+    "password": "Mot de passe",
+    "displayName": "Nom",
+    "roleSelect": "Choisir le rôle",
+    "rolePastor": "Pasteur",
+    "roleMember": "Membre",
+    "churchName": "Nom de l'église",
+    "position": "Fonction",
+    "pastorNote": "En vous inscrivant comme pasteur, les fonctionnalités complètes telles que le rédacteur de prédication deviennent disponibles après approbation de l'administrateur. Jusque-là, vous avez un accès membre.",
+    "orContinueWith": "ou",
+    "googleSignIn": "Continuer avec Google",
+    "noAccount": "Pas de compte ?",
+    "haveAccount": "Vous avez déjà un compte ?",
+    "signupSuccess": "Inscription terminée. Veuillez vérifier votre e-mail.",
+    "checkEmail": "Veuillez vérifier votre e-mail de confirmation."
+  },
+  "Roles": {
+    "admin": "Administrateur",
+    "pastor": "Pasteur",
+    "member": "Membre",
+    "guest": "Invité"
+  },
+  "Errors": {
+    "generic": "Une erreur s'est produite. Veuillez réessayer sous peu.",
+    "invalidCredentials": "L'e-mail ou le mot de passe est incorrect.",
+    "required": "Ce champ est obligatoire.",
+    "notAuthorized": "Vous n'avez pas la permission d'accéder à cette page."
+  }
+}

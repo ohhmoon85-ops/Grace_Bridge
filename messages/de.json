@@ -1,0 +1,78 @@
+{
+  "Meta": {
+    "title": "GraceBridge — Plattform zur Unterstützung des Dienstes",
+    "description": "Eine mehrsprachige Plattform, die Pastoren bei der Predigtvorbereitung und Gläubige beim Verständnis der Schrift unterstützt."
+  },
+  "Common": {
+    "appName": "GraceBridge",
+    "loading": "Wird geladen...",
+    "save": "Speichern",
+    "cancel": "Abbrechen",
+    "delete": "Löschen",
+    "edit": "Bearbeiten",
+    "confirm": "Bestätigen",
+    "back": "Zurück",
+    "next": "Weiter",
+    "search": "Suchen",
+    "language": "Sprache",
+    "signIn": "Anmelden",
+    "signOut": "Abmelden",
+    "signUp": "Registrieren",
+    "getStarted": "Loslegen",
+    "comingSoon": "Demnächst verfügbar"
+  },
+  "Nav": {
+    "home": "Start",
+    "sermon": "Predigt",
+    "library": "Bibliothek",
+    "devotion": "Andacht",
+    "profile": "Profil",
+    "admin": "Admin"
+  },
+  "Landing": {
+    "heroTagline": "Ein KI-Partner für die Predigt",
+    "heroTitle": "Erleichtern Sie die Vorbereitung und verweilen Sie tiefer im Wort",
+    "heroSubtitle": "GraceBridge ist eine mehrsprachige Dienstplattform, die Pastoren bei der Predigtvorbereitung und Gläubige beim besseren Verständnis der Schrift unterstützt.",
+    "ctaPrimary": "Kostenlos starten",
+    "ctaSecondary": "Entdecken",
+    "feature1Title": "KI-Predigtschreiber",
+    "feature1Desc": "Wählen Sie Text, Zeit, Zielgruppe und Länge und bauen Sie das Grundgerüst Ihrer Predigt – von der Gliederung bis zu den Anwendungsfragen.",
+    "feature2Title": "Bibel-Bibliothek",
+    "feature2Desc": "Durchstöbern Sie Folien, Videos und Materialien, geordnet nach der Struktur aller 66 Bücher der Bibel.",
+    "feature3Title": "Fünf Sprachen",
+    "feature3Desc": "Koreanisch, Englisch, Französisch, Spanisch, Deutsch. Sowohl die Oberfläche als auch die erzeugten Inhalte sind mehrsprachig.",
+    "disclaimer": "Die von der KI erzeugten Inhalte auf dieser Plattform sind eine Hilfe zur Predigtvorbereitung. Bitte vollenden Sie Ihre endgültige Predigt durch Gebet, Meditation und theologische Prüfung.",
+    "previewBadge": "Vorschau"
+  },
+  "Auth": {
+    "loginTitle": "Willkommen zurück",
+    "signupTitle": "Mit GraceBridge starten",
+    "email": "E-Mail",
+    "password": "Passwort",
+    "displayName": "Name",
+    "roleSelect": "Rolle wählen",
+    "rolePastor": "Pastor",
+    "roleMember": "Mitglied",
+    "churchName": "Gemeindename",
+    "position": "Amt",
+    "pastorNote": "Wenn Sie sich als Pastor registrieren, stehen nach Genehmigung durch den Administrator alle Funktionen wie der Predigtschreiber zur Verfügung. Bis dahin haben Sie Mitgliederzugang.",
+    "orContinueWith": "oder",
+    "googleSignIn": "Mit Google fortfahren",
+    "noAccount": "Noch kein Konto?",
+    "haveAccount": "Bereits ein Konto?",
+    "signupSuccess": "Registrierung abgeschlossen. Bitte prüfen Sie Ihre E-Mail.",
+    "checkEmail": "Bitte prüfen Sie Ihre Bestätigungs-E-Mail."
+  },
+  "Roles": {
+    "admin": "Administrator",
+    "pastor": "Pastor",
+    "member": "Mitglied",
+    "guest": "Gast"
+  },
+  "Errors": {
+    "generic": "Etwas ist schiefgelaufen. Bitte versuchen Sie es in Kürze erneut.",
+    "invalidCredentials": "E-Mail oder Passwort ist falsch.",
+    "required": "Dieses Feld ist erforderlich.",
+    "notAuthorized": "Sie haben keine Berechtigung, auf diese Seite zuzugreifen."
+  }
+}

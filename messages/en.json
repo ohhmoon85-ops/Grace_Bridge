@@ -1,0 +1,78 @@
+{
+  "Meta": {
+    "title": "GraceBridge — Ministry Support Platform",
+    "description": "A multilingual platform that helps pastors prepare sermons and helps believers understand Scripture."
+  },
+  "Common": {
+    "appName": "GraceBridge",
+    "loading": "Loading...",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "confirm": "Confirm",
+    "back": "Back",
+    "next": "Next",
+    "search": "Search",
+    "language": "Language",
+    "signIn": "Sign in",
+    "signOut": "Sign out",
+    "signUp": "Sign up",
+    "getStarted": "Get started",
+    "comingSoon": "Coming soon"
+  },
+  "Nav": {
+    "home": "Home",
+    "sermon": "Sermon",
+    "library": "Library",
+    "devotion": "Devotion",
+    "profile": "Profile",
+    "admin": "Admin"
+  },
+  "Landing": {
+    "heroTagline": "An AI sermon partner for pastors",
+    "heroTitle": "Lighten the load of preparation, and dwell deeper in the Word",
+    "heroSubtitle": "GraceBridge is a multilingual ministry platform that helps pastors prepare sermons and helps believers understand Scripture more clearly.",
+    "ctaPrimary": "Start for free",
+    "ctaSecondary": "Explore",
+    "feature1Title": "AI Sermon Writer",
+    "feature1Desc": "Choose the passage, season, audience, and length, and build the framework of your sermon from outline to application questions.",
+    "feature2Title": "Scripture Library",
+    "feature2Desc": "Browse slides, videos, and resources organized by the structure of all 66 books of the Bible.",
+    "feature3Title": "Five Languages",
+    "feature3Desc": "Korean, English, French, Spanish, German. Both the interface and generated content are multilingual.",
+    "disclaimer": "AI-generated content on this platform is a reference to aid sermon preparation. Please complete your final sermon through prayer, meditation, and theological review.",
+    "previewBadge": "Preview"
+  },
+  "Auth": {
+    "loginTitle": "Welcome back",
+    "signupTitle": "Get started with GraceBridge",
+    "email": "Email",
+    "password": "Password",
+    "displayName": "Name",
+    "roleSelect": "Select role",
+    "rolePastor": "Pastor",
+    "roleMember": "Member",
+    "churchName": "Church name",
+    "position": "Position",
+    "pastorNote": "When you register as a pastor, full features such as the sermon writer become available after administrator approval. Until then, you have member access.",
+    "orContinueWith": "or",
+    "googleSignIn": "Continue with Google",
+    "noAccount": "Don't have an account?",
+    "haveAccount": "Already have an account?",
+    "signupSuccess": "Registration complete. Please check your email.",
+    "checkEmail": "Please check your verification email."
+  },
+  "Roles": {
+    "admin": "Administrator",
+    "pastor": "Pastor",
+    "member": "Member",
+    "guest": "Guest"
+  },
+  "Errors": {
+    "generic": "Something went wrong. Please try again shortly.",
+    "invalidCredentials": "Email or password is incorrect.",
+    "required": "This field is required.",
+    "notAuthorized": "You do not have permission to access this page."
+  }
+}

@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 255 255 255;
+  --foreground: 17 24 39;
+}
+
+.dark {
+  --background: 15 18 26;
+  --foreground: 237 240 245;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: rgb(var(--background));
+  color: rgb(var(--foreground));
+  /* iOS 폰트 최소 16px로 자동 확대 방지 */
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 터치 타깃 최소 44px 보장용 유틸 */
+@layer components {
+  .tap-target {
+    @apply min-h-[44px] min-w-[44px];
+  }
+}

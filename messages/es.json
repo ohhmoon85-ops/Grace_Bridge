@@ -1,0 +1,78 @@
+{
+  "Meta": {
+    "title": "GraceBridge — Plataforma de apoyo pastoral",
+    "description": "Una plataforma multilingüe que ayuda a los pastores a preparar sermones y a los creyentes a comprender las Escrituras."
+  },
+  "Common": {
+    "appName": "GraceBridge",
+    "loading": "Cargando...",
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "confirm": "Confirmar",
+    "back": "Atrás",
+    "next": "Siguiente",
+    "search": "Buscar",
+    "language": "Idioma",
+    "signIn": "Iniciar sesión",
+    "signOut": "Cerrar sesión",
+    "signUp": "Registrarse",
+    "getStarted": "Comenzar",
+    "comingSoon": "Próximamente"
+  },
+  "Nav": {
+    "home": "Inicio",
+    "sermon": "Sermón",
+    "library": "Biblioteca",
+    "devotion": "Devoción",
+    "profile": "Perfil",
+    "admin": "Admin"
+  },
+  "Landing": {
+    "heroTagline": "Un compañero de IA para la predicación",
+    "heroTitle": "Aligera la carga de la preparación y permanece más hondo en la Palabra",
+    "heroSubtitle": "GraceBridge es una plataforma pastoral multilingüe que ayuda a los pastores a preparar sermones y a los creyentes a comprender mejor las Escrituras.",
+    "ctaPrimary": "Comenzar gratis",
+    "ctaSecondary": "Explorar",
+    "feature1Title": "Redactor de sermones con IA",
+    "feature1Desc": "Elige el pasaje, la temporada, la audiencia y la duración, y construye la estructura de tu sermón, desde el esquema hasta las preguntas de aplicación.",
+    "feature2Title": "Biblioteca bíblica",
+    "feature2Desc": "Explora diapositivas, videos y recursos organizados según la estructura de los 66 libros de la Biblia.",
+    "feature3Title": "Cinco idiomas",
+    "feature3Desc": "Coreano, inglés, francés, español y alemán. Tanto la interfaz como el contenido generado son multilingües.",
+    "disclaimer": "El contenido generado por IA en esta plataforma es una referencia para ayudar en la preparación. Complete su sermón final mediante la oración, la meditación y la revisión teológica.",
+    "previewBadge": "Vista previa"
+  },
+  "Auth": {
+    "loginTitle": "Bienvenido de nuevo",
+    "signupTitle": "Comienza con GraceBridge",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "displayName": "Nombre",
+    "roleSelect": "Seleccionar rol",
+    "rolePastor": "Pastor",
+    "roleMember": "Miembro",
+    "churchName": "Nombre de la iglesia",
+    "position": "Cargo",
+    "pastorNote": "Al registrarte como pastor, las funciones completas como el redactor de sermones estarán disponibles tras la aprobación del administrador. Hasta entonces, tendrás acceso de miembro.",
+    "orContinueWith": "o",
+    "googleSignIn": "Continuar con Google",
+    "noAccount": "¿No tienes cuenta?",
+    "haveAccount": "¿Ya tienes una cuenta?",
+    "signupSuccess": "Registro completado. Por favor, revisa tu correo.",
+    "checkEmail": "Por favor, revisa tu correo de verificación."
+  },
+  "Roles": {
+    "admin": "Administrador",
+    "pastor": "Pastor",
+    "member": "Miembro",
+    "guest": "Invitado"
+  },
+  "Errors": {
+    "generic": "Algo salió mal. Inténtalo de nuevo en breve.",
+    "invalidCredentials": "El correo o la contraseña son incorrectos.",
+    "required": "Este campo es obligatorio.",
+    "notAuthorized": "No tienes permiso para acceder a esta página."
+  }
+}
