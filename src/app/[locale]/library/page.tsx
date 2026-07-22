@@ -1,6 +1,7 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { createClient } from '@/lib/supabase/server';
+import { hasSupabaseEnv } from '@/lib/supabase/env';
 import type { AppLocale, Content } from '@/types/database';
 import {
   OLD_TESTAMENT,
@@ -30,7 +31,7 @@ export default async function LibraryPage({
   const t = await getTranslations('Library');
 
   let results: Content[] = [];
-  if (hasFilter) {
+  if (hasFilter && hasSupabaseEnv()) {
     const supabase = await createClient();
     let query = supabase
       .from('contents')

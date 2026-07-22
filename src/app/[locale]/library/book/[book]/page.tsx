@@ -2,6 +2,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { Link } from '@/i18n/navigation';
 import { createClient } from '@/lib/supabase/server';
+import { hasSupabaseEnv } from '@/lib/supabase/env';
 import type { AppLocale, Content } from '@/types/database';
 import { getBook } from '@/lib/bible/books';
 import ContentCard from '@/components/library/ContentCard';
@@ -20,15 +21,17 @@ export default async function BookContentsPage({
   }
 
   const t = await getTranslations('Library');
-  const supabase = await createClient();
-  const { data } = await supabase
-    .from('contents')
-    .select('*')
-    .eq('published', true)
-    .eq('book', book)
-    .order('created_at', { ascending: false });
-
-  const contents = (data as Content[]) ?? [];
+  let contents: Content[] = [];
+  if (hasSupabaseEnv()) {
+    const supabase = await createClient();
+    const { data } = await supabase
+      .from('contents')
+      .select('*')
+      .eq('published', true)
+      .eq('book', book)
+      .order('created_at', { ascending: false });
+    contents = (data as Content[]) ?? [];
+  }
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-6">

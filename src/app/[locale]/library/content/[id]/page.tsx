@@ -2,6 +2,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { Link } from '@/i18n/navigation';
 import { createClient } from '@/lib/supabase/server';
+import { hasSupabaseEnv } from '@/lib/supabase/env';
 import type { AppLocale, Content } from '@/types/database';
 import { bookName } from '@/lib/bible/books';
 import SlideViewer from '@/components/library/SlideViewer';
@@ -15,6 +16,10 @@ export default async function ContentDetailPage({
 }) {
   const { locale, id } = await params;
   setRequestLocale(locale);
+
+  if (!hasSupabaseEnv()) {
+    notFound();
+  }
 
   const supabase = await createClient();
   const {

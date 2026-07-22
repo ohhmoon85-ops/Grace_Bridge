@@ -1,4 +1,5 @@
 import { createClient } from './supabase/server';
+import { hasSupabaseEnv } from './supabase/env';
 import type { Profile } from '@/types/database';
 
 /**
@@ -6,6 +7,7 @@ import type { Profile } from '@/types/database';
  * Use in Server Components / Route Handlers.
  */
 export async function getCurrentProfile(): Promise<Profile | null> {
+  if (!hasSupabaseEnv()) return null;
   const supabase = await createClient();
 
   const {
