@@ -164,6 +164,34 @@
     "watchOnYoutube": "Ver en YouTube",
     "loginToBookmark": "Inicia sesión para guardar contenido."
   },
+  "Devotion": {
+    "title": "Devoción de hoy",
+    "verseOfDay": "Versículo del día",
+    "notReady": "La devoción de hoy aún no está lista.",
+    "recent": "Devociones anteriores",
+    "askBible": "Preguntar sobre la Biblia"
+  },
+  "QA": {
+    "title": "Preguntas bíblicas",
+    "subtitle": "Pregunta lo que quieras sobre las Escrituras.",
+    "placeholder": "Escribe tu pregunta sobre la Biblia",
+    "send": "Enviar",
+    "thinking": "Respondiendo...",
+    "disclaimer": "Las respuestas de la IA son de referencia. Consulta a tu pastor para asuntos importantes de fe.",
+    "loginRequired": "Las preguntas bíblicas están disponibles tras iniciar sesión.",
+    "empty": "Haz una pregunta, p. ej.: ¿Cuál es el corazón del Sermón del Monte?",
+    "newChat": "Nueva conversación",
+    "limitReached": "Has usado todas tus preguntas de hoy.",
+    "error": "Ocurrió un error. Inténtalo de nuevo en breve."
+  },
+  "Announcements": {
+    "title": "Anuncios",
+    "none": "No hay anuncios todavía."
+  },
+  "Theme": {
+    "light": "Modo claro",
+    "dark": "Modo oscuro"
+  },
   "Errors": {
     "generic": "Algo salió mal. Inténtalo de nuevo en breve.",
     "invalidCredentials": "El correo o la contraseña son incorrectos.",

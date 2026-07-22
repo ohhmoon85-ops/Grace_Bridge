@@ -2,6 +2,7 @@ import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import type { UserRole } from '@/types/database';
 import LanguageSwitcher from './LanguageSwitcher';
+import ThemeToggle from './ThemeToggle';
 import { signOutAction } from '@/app/[locale]/auth-actions';
 
 export default async function Header({
@@ -31,6 +32,7 @@ export default async function Header({
         </nav>
 
         <div className="flex items-center gap-1">
+          <ThemeToggle />
           <LanguageSwitcher />
           {isGuest ? (
             <Link

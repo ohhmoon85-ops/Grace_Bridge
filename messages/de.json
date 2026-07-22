@@ -164,6 +164,34 @@
     "watchOnYoutube": "Auf YouTube ansehen",
     "loginToBookmark": "Melden Sie sich an, um Inhalte zu merken."
   },
+  "Devotion": {
+    "title": "Andacht des Tages",
+    "verseOfDay": "Vers des Tages",
+    "notReady": "Die heutige Andacht ist noch nicht bereit.",
+    "recent": "Frühere Andachten",
+    "askBible": "Zur Bibel fragen"
+  },
+  "QA": {
+    "title": "Bibel-Fragen",
+    "subtitle": "Stellen Sie beliebige Fragen zur Schrift.",
+    "placeholder": "Geben Sie Ihre Frage zur Bibel ein",
+    "send": "Senden",
+    "thinking": "Antwort wird erstellt...",
+    "disclaimer": "KI-Antworten dienen als Referenz. Bei wichtigen Glaubensfragen wenden Sie sich an Ihren Pastor.",
+    "loginRequired": "Bibel-Fragen sind nach der Anmeldung verfügbar.",
+    "empty": "Stellen Sie eine Frage, z. B.: Was ist der Kern der Bergpredigt?",
+    "newChat": "Neues Gespräch",
+    "limitReached": "Sie haben alle heutigen Fragen aufgebraucht.",
+    "error": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es in Kürze erneut."
+  },
+  "Announcements": {
+    "title": "Ankündigungen",
+    "none": "Noch keine Ankündigungen."
+  },
+  "Theme": {
+    "light": "Heller Modus",
+    "dark": "Dunkler Modus"
+  },
   "Errors": {
     "generic": "Etwas ist schiefgelaufen. Bitte versuchen Sie es in Kürze erneut.",
     "invalidCredentials": "E-Mail oder Passwort ist falsch.",

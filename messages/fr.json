@@ -164,6 +164,34 @@
     "watchOnYoutube": "Voir sur YouTube",
     "loginToBookmark": "Connectez-vous pour ajouter aux favoris."
   },
+  "Devotion": {
+    "title": "Méditation du jour",
+    "verseOfDay": "Verset du jour",
+    "notReady": "La méditation du jour n'est pas encore prête.",
+    "recent": "Méditations passées",
+    "askBible": "Poser une question biblique"
+  },
+  "QA": {
+    "title": "Questions bibliques",
+    "subtitle": "Posez toutes vos questions sur les Écritures.",
+    "placeholder": "Saisissez votre question sur la Bible",
+    "send": "Envoyer",
+    "thinking": "Réponse en cours...",
+    "disclaimer": "Les réponses de l'IA sont à titre indicatif. Consultez votre pasteur pour les questions importantes de foi.",
+    "loginRequired": "Les questions bibliques sont disponibles après connexion.",
+    "empty": "Posez une question, par ex. : Quel est le cœur du Sermon sur la montagne ?",
+    "newChat": "Nouvelle conversation",
+    "limitReached": "Vous avez utilisé toutes vos questions du jour.",
+    "error": "Une erreur s'est produite. Veuillez réessayer sous peu."
+  },
+  "Announcements": {
+    "title": "Annonces",
+    "none": "Aucune annonce pour l'instant."
+  },
+  "Theme": {
+    "light": "Mode clair",
+    "dark": "Mode sombre"
+  },
   "Errors": {
     "generic": "Une erreur s'est produite. Veuillez réessayer sous peu.",
     "invalidCredentials": "L'e-mail ou le mot de passe est incorrect.",

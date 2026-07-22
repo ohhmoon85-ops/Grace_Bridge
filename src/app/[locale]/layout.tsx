@@ -19,9 +19,26 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'Meta' });
+  const base = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+  const languages = Object.fromEntries(
+    routing.locales.map((l) => [l, `/${l}`])
+  );
   return {
+    metadataBase: new URL(base),
     title: t('title'),
     description: t('description'),
+    alternates: {
+      canonical: `/${locale}`,
+      languages,
+    },
+    openGraph: {
+      title: t('title'),
+      description: t('description'),
+      url: `/${locale}`,
+      siteName: 'GraceBridge',
+      locale,
+      type: 'website',
+    },
   };
 }
 
@@ -46,6 +63,14 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
+      <head>
+        <script
+          // 하이드레이션 전에 테마를 적용해 깜빡임(FOUC)을 방지합니다.
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark');}}catch(e){}})();`,
+          }}
+        />
+      </head>
       <body className="min-h-screen antialiased">
         <NextIntlClientProvider messages={messages}>
           <div className="flex min-h-screen flex-col">

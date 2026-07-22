@@ -1,5 +1,8 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
+import { createClient } from '@/lib/supabase/server';
+import { hasSupabaseEnv } from '@/lib/supabase/env';
+import type { Announcement } from '@/types/database';
 
 export default async function LandingPage({
   params,
@@ -10,6 +13,20 @@ export default async function LandingPage({
   setRequestLocale(locale);
   const t = await getTranslations('Landing');
   const c = await getTranslations('Common');
+  const a = await getTranslations('Announcements');
+
+  let announcements: Announcement[] = [];
+  if (hasSupabaseEnv()) {
+    const supabase = await createClient();
+    const { data } = await supabase
+      .from('announcements')
+      .select('*')
+      .eq('language', locale)
+      .not('published_at', 'is', null)
+      .order('published_at', { ascending: false })
+      .limit(3);
+    announcements = (data as Announcement[]) ?? [];
+  }
 
   const features = [
     {
@@ -83,6 +100,30 @@ export default async function LandingPage({
           </Link>
         ))}
       </section>
+
+      {/* Announcements */}
+      {announcements.length > 0 && (
+        <section className="mb-12">
+          <h2 className="mb-3 text-lg font-semibold text-gray-900 dark:text-white">
+            📢 {a('title')}
+          </h2>
+          <ul className="space-y-2">
+            {announcements.map((ann) => (
+              <li
+                key={ann.id}
+                className="rounded-xl border border-gray-200 bg-white p-4 dark:border-gray-800 dark:bg-gray-900"
+              >
+                <p className="font-medium text-gray-900 dark:text-white">
+                  {ann.title}
+                </p>
+                <p className="mt-1 line-clamp-2 whitespace-pre-wrap text-sm text-gray-600 dark:text-gray-300">
+                  {ann.body_md.replace(/[#*_>`]/g, '')}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       {/* Disclaimer */}
       <section className="mb-14">

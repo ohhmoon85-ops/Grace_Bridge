@@ -164,6 +164,34 @@
     "watchOnYoutube": "YouTube에서 보기",
     "loginToBookmark": "북마크는 로그인 후 이용할 수 있습니다."
   },
+  "Devotion": {
+    "title": "오늘의 묵상",
+    "verseOfDay": "오늘의 말씀",
+    "notReady": "오늘의 묵상이 아직 준비되지 않았습니다.",
+    "recent": "지난 묵상",
+    "askBible": "성경 질문하기"
+  },
+  "QA": {
+    "title": "성경 Q&A",
+    "subtitle": "성경 내용에 대해 자유롭게 질문해 보세요.",
+    "placeholder": "성경에 대해 궁금한 점을 입력하세요",
+    "send": "보내기",
+    "thinking": "답변 중...",
+    "disclaimer": "AI 답변은 참고용입니다. 중요한 신앙적 결정은 목회자와 상의하시기 바랍니다.",
+    "loginRequired": "성경 Q&A는 로그인 후 이용할 수 있습니다.",
+    "empty": "궁금한 것을 물어보세요. 예: 산상수훈의 핵심은 무엇인가요?",
+    "newChat": "새 대화",
+    "limitReached": "오늘 사용 가능한 질문 횟수를 모두 사용하셨습니다.",
+    "error": "답변 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요."
+  },
+  "Announcements": {
+    "title": "공지사항",
+    "none": "등록된 공지가 없습니다."
+  },
+  "Theme": {
+    "light": "라이트 모드",
+    "dark": "다크 모드"
+  },
   "Errors": {
     "generic": "문제가 발생했습니다. 잠시 후 다시 시도해 주세요.",
     "invalidCredentials": "이메일 또는 비밀번호가 올바르지 않습니다.",

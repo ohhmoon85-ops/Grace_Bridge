@@ -164,6 +164,34 @@
     "watchOnYoutube": "Watch on YouTube",
     "loginToBookmark": "Sign in to bookmark content."
   },
+  "Devotion": {
+    "title": "Today's Devotion",
+    "verseOfDay": "Verse of the day",
+    "notReady": "Today's devotion is not ready yet.",
+    "recent": "Past devotions",
+    "askBible": "Ask about the Bible"
+  },
+  "QA": {
+    "title": "Bible Q&A",
+    "subtitle": "Ask anything about Scripture.",
+    "placeholder": "Type your question about the Bible",
+    "send": "Send",
+    "thinking": "Answering...",
+    "disclaimer": "AI answers are for reference. Please consult your pastor for important matters of faith.",
+    "loginRequired": "Bible Q&A is available after signing in.",
+    "empty": "Ask a question, e.g. What is the heart of the Sermon on the Mount?",
+    "newChat": "New chat",
+    "limitReached": "You've used all of today's questions.",
+    "error": "An error occurred while answering. Please try again shortly."
+  },
+  "Announcements": {
+    "title": "Announcements",
+    "none": "No announcements yet."
+  },
+  "Theme": {
+    "light": "Light mode",
+    "dark": "Dark mode"
+  },
   "Errors": {
     "generic": "Something went wrong. Please try again shortly.",
     "invalidCredentials": "Email or password is incorrect.",
