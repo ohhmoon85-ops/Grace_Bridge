@@ -30,3 +30,58 @@ body {
     @apply min-h-[44px] min-w-[44px];
   }
 }
+
+/* 마크다운 렌더링 스타일 (설교 본문 등) */
+.md-body {
+  line-height: 1.75;
+  word-break: break-word;
+}
+.md-body h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 1.25rem 0 0.75rem;
+}
+.md-body h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 1.5rem 0 0.6rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid rgb(0 0 0 / 0.08);
+}
+.dark .md-body h2 {
+  border-bottom-color: rgb(255 255 255 / 0.12);
+}
+.md-body h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 1rem 0 0.4rem;
+}
+.md-body p {
+  margin: 0.6rem 0;
+}
+.md-body ul,
+.md-body ol {
+  margin: 0.6rem 0;
+  padding-left: 1.4rem;
+}
+.md-body ul {
+  list-style: disc;
+}
+.md-body ol {
+  list-style: decimal;
+}
+.md-body li {
+  margin: 0.3rem 0;
+}
+.md-body strong {
+  font-weight: 700;
+}
+.md-body blockquote {
+  border-left: 3px solid rgb(51 118 246 / 0.5);
+  padding-left: 0.9rem;
+  margin: 0.8rem 0;
+  color: rgb(0 0 0 / 0.7);
+}
+.dark .md-body blockquote {
+  color: rgb(255 255 255 / 0.7);
+}
