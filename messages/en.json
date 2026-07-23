@@ -56,8 +56,6 @@
     "churchName": "Church name",
     "position": "Position",
     "pastorNote": "When you register as a pastor, full features such as the sermon writer become available after administrator approval. Until then, you have member access.",
-    "orContinueWith": "or",
-    "googleSignIn": "Continue with Google",
     "noAccount": "Don't have an account?",
     "haveAccount": "Already have an account?",
     "signupSuccess": "Registration complete. Please check your email.",

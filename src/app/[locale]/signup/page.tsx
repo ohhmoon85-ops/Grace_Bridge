@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { createClient } from '@/lib/supabase/client';
-import GoogleButton from '@/components/GoogleButton';
 
 type Role = 'pastor' | 'member';
 
@@ -35,6 +34,7 @@ export default function SignupPage() {
       options: {
         emailRedirectTo: `${window.location.origin}/auth/callback?next=/${locale}`,
         data: {
+          app_name: 'grace-bridge',
           display_name: displayName,
           role,
           church_name: role === 'pastor' ? churchName : null,
@@ -175,15 +175,6 @@ export default function SignupPage() {
           {loading ? c('loading') : c('signUp')}
         </button>
       </form>
-
-      <div className="my-6 flex items-center gap-3">
-        <span className="h-px flex-1 bg-gray-200 dark:bg-gray-700" />
-        <span className="text-xs uppercase text-gray-400">
-          {t('orContinueWith')}
-        </span>
-        <span className="h-px flex-1 bg-gray-200 dark:bg-gray-700" />
-      </div>
-      <GoogleButton label={t('googleSignIn')} locale={locale} />
 
       <p className="mt-6 text-center text-sm text-gray-600 dark:text-gray-300">
         {t('haveAccount')}{' '}

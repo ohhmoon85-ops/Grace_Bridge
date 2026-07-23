@@ -1,17 +1,15 @@
 'use client';
 
 import { useState } from 'react';
-import { useTranslations, useLocale } from 'next-intl';
+import { useTranslations } from 'next-intl';
 import { Link, useRouter } from '@/i18n/navigation';
 import { createClient } from '@/lib/supabase/client';
-import GoogleButton from '@/components/GoogleButton';
 
 export default function LoginPage() {
   const t = useTranslations('Auth');
   const c = useTranslations('Common');
   const e = useTranslations('Errors');
   const router = useRouter();
-  const locale = useLocale();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -79,9 +77,6 @@ export default function LoginPage() {
         </button>
       </form>
 
-      <Divider label={t('orContinueWith')} />
-      <GoogleButton label={t('googleSignIn')} locale={locale} />
-
       <p className="mt-6 text-center text-sm text-gray-600 dark:text-gray-300">
         {t('noAccount')}{' '}
         <Link href="/signup" className="font-semibold text-brand-600">
@@ -119,15 +114,5 @@ function Field({
       </span>
       {children}
     </label>
-  );
-}
-
-function Divider({ label }: { label: string }) {
-  return (
-    <div className="my-6 flex items-center gap-3">
-      <span className="h-px flex-1 bg-gray-200 dark:bg-gray-700" />
-      <span className="text-xs uppercase text-gray-400">{label}</span>
-      <span className="h-px flex-1 bg-gray-200 dark:bg-gray-700" />
-    </div>
   );
 }
