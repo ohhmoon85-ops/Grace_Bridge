@@ -94,7 +94,7 @@ export default function LoginPage() {
           background: transparent;
           min-height: 44px;
         }
-        .input:focus { outline: 2px solid rgb(51 118 246); outline-offset: 1px; }
+        .input:focus { outline: 2px solid #B8912E; outline-offset: 1px; }
       `}</style>
     </div>
   );
