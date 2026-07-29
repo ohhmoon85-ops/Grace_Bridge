@@ -62,7 +62,7 @@ export default async function LandingPage({
       {/* Hero */}
       <section className="py-14 md:py-24">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="mb-4 inline-block rounded-full bg-brand-50 px-4 py-1.5 text-sm font-semibold text-brand-700 dark:bg-brand-900/40 dark:text-brand-200">
+          <p className="mb-4 inline-block rounded-full bg-gold-soft px-4 py-1.5 text-sm font-semibold text-brand-800 dark:bg-gold/20 dark:text-gold-soft">
             {t('heroTagline')}
           </p>
           <h1 className="text-3xl font-bold leading-tight tracking-tight text-gray-900 md:text-5xl dark:text-white">
@@ -130,7 +130,7 @@ export default async function LandingPage({
 
       {/* Disclaimer */}
       <section className="mb-14">
-        <div className="rounded-2xl border border-amber-200 bg-amber-50 p-5 text-sm leading-relaxed text-amber-900 dark:border-amber-900/50 dark:bg-amber-950/30 dark:text-amber-200">
+        <div className="rounded-2xl border border-dashed border-gold bg-paper-dim p-5 text-sm leading-relaxed text-ink dark:border-gold/40 dark:bg-gray-900 dark:text-gray-200">
           <span className="mr-1" aria-hidden>
             ⚠️
           </span>

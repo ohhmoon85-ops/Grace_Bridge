@@ -64,6 +64,16 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} suppressHydrationWarning>
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Gowun+Batang:wght@400;700&display=swap"
+          rel="stylesheet"
+        />
         <script
           // 하이드레이션 전에 테마를 적용해 깜빡임(FOUC)을 방지합니다.
           dangerouslySetInnerHTML={{

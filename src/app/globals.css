@@ -3,17 +3,41 @@
 @tailwind utilities;
 
 :root {
-  --background: 255 255 255;
-  --foreground: 17 24 39;
+  /* 완벽 예제 팔레트 (라이트) */
+  --ink: #1d2440;
+  --ink-soft: #3a4266;
+  --paper: #fbfaf6;
+  --paper-dim: #f1efe7;
+  --gold: #b8912e;
+  --gold-soft: #e5d9b6;
+  --violet: #6b5b95;
+  --line: #dad6c8;
+  --danger: #a8493e;
+
+  /* 페이지 바탕 = paper-dim, 본문 텍스트 = ink */
+  --background: 241 239 231;
+  --foreground: 29 36 64;
 }
 
 .dark {
+  /* 다크 팔레트는 이번 개편 대상 아님 (기존 유지) */
   --background: 15 18 26;
   --foreground: 237 240 245;
 }
 
 html {
   -webkit-text-size-adjust: 100%;
+}
+
+/* 라이트 모드: 순백(#fff) 대신 따뜻한 종이(paper)를 카드 배경으로 */
+html:not(.dark) .bg-white {
+  background-color: var(--paper) !important;
+}
+
+/* 제목·성경 구절은 세리프 */
+h1,
+.font-serif {
+  font-family: 'Gowun Batang', 'Cormorant Garamond', 'Noto Serif KR', serif;
 }
 
 body {

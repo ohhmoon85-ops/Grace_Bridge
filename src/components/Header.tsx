@@ -23,8 +23,8 @@ export default async function Header({
           <span className="text-xl" aria-hidden>
             🕊️
           </span>
-          <span className="text-lg font-bold text-brand-700 dark:text-brand-300">
-            {t('appName')}
+          <span className="font-serif text-lg font-bold text-brand-700 dark:text-brand-300">
+            Grace<span className="text-gold">Bridge</span>
           </span>
         </Link>
 
