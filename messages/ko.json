@@ -74,6 +74,7 @@
   },
   "Auth": {
     "loginTitle": "다시 오신 것을 환영합니다",
+    "emailNotConfirmed": "이메일 인증이 완료되지 않았습니다. 가입 시 받은 인증 메일의 링크를 클릭해 주세요.",
     "signupTitle": "GraceBridge 시작하기",
     "email": "이메일",
     "password": "비밀번호",

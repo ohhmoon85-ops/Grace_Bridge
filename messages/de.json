@@ -74,6 +74,7 @@
   },
   "Auth": {
     "loginTitle": "Willkommen zurück",
+    "emailNotConfirmed": "Ihre E-Mail ist noch nicht bestätigt. Bitte klicken Sie auf den Link in der Bestätigungs-E-Mail.",
     "signupTitle": "Mit GraceBridge starten",
     "email": "E-Mail",
     "password": "Passwort",

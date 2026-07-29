@@ -27,7 +27,12 @@ export default function LoginPage() {
     });
     setLoading(false);
     if (err) {
-      setError(e('invalidCredentials'));
+      // 이메일 미인증은 별도 안내 (원인이 가려지지 않도록)
+      if (err.code === 'email_not_confirmed' || /confirm/i.test(err.message)) {
+        setError(t('emailNotConfirmed'));
+      } else {
+        setError(e('invalidCredentials'));
+      }
       return;
     }
     router.push('/');
