@@ -32,7 +32,12 @@
   "Landing": {
     "heroTagline": "Un partenaire IA pour la prédication",
     "heroTitle": "Allégez la préparation et demeurez plus profondément dans la Parole",
-    "heroSubtitle": "GraceBridge est une plateforme pastorale multilingue qui aide les pasteurs à préparer leurs prédications et les fidèles à mieux comprendre les Écritures.",
+    "heroSubtitle": "GraceBridge est un outil pastoral multilingue pour les pasteurs qui préparent leurs prédications et leur enseignement biblique hebdomadaires.",
+    "featureResourcesTitle": "Ressources pastorales",
+    "featureResourcesDesc": "Trouvez des supports pédagogiques prêts à l'emploi pour l'étude biblique, les petits groupes et l'école du dimanche.",
+    "featureSavedTitle": "Mes prédications",
+    "featureSavedDesc": "Enregistrez les prédications générées et rouvrez-les à tout moment pour les modifier et les exporter.",
+    "trustLine": "Les supports pédagogiques de cette plateforme sont créés et publiés par le pasteur Lee Seong-gyun.",
     "ctaPrimary": "Commencer gratuitement",
     "ctaSecondary": "Découvrir",
     "feature1Title": "Rédacteur de prédication IA",

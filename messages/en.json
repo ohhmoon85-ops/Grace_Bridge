@@ -32,7 +32,12 @@
   "Landing": {
     "heroTagline": "An AI sermon partner for pastors",
     "heroTitle": "Lighten the load of preparation, and dwell deeper in the Word",
-    "heroSubtitle": "GraceBridge is a multilingual ministry platform that helps pastors prepare sermons and helps believers understand Scripture more clearly.",
+    "heroSubtitle": "GraceBridge is a multilingual ministry tool for pastors preparing weekly sermons and Bible teaching.",
+    "featureResourcesTitle": "Ministry Resources",
+    "featureResourcesDesc": "Find teaching materials ready to use in Bible study, small groups, and Sunday school.",
+    "featureSavedTitle": "My Sermons",
+    "featureSavedDesc": "Save the sermons you generate and reopen them anytime to edit and export.",
+    "trustLine": "The teaching materials on this platform are created and published by Pastor Lee Seong-gyun.",
     "ctaPrimary": "Start for free",
     "ctaSecondary": "Explore",
     "feature1Title": "AI Sermon Writer",

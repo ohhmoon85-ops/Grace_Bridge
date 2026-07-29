@@ -32,7 +32,12 @@
   "Landing": {
     "heroTagline": "Un compañero de IA para la predicación",
     "heroTitle": "Aligera la carga de la preparación y permanece más hondo en la Palabra",
-    "heroSubtitle": "GraceBridge es una plataforma pastoral multilingüe que ayuda a los pastores a preparar sermones y a los creyentes a comprender mejor las Escrituras.",
+    "heroSubtitle": "GraceBridge es una herramienta ministerial multilingüe para pastores que preparan sus sermones y su enseñanza bíblica semanales.",
+    "featureResourcesTitle": "Recursos pastorales",
+    "featureResourcesDesc": "Encuentra materiales de enseñanza listos para usar en el estudio bíblico, los grupos pequeños y la escuela dominical.",
+    "featureSavedTitle": "Mis sermones",
+    "featureSavedDesc": "Guarda los sermones que generes y ábrelos cuando quieras para editarlos y exportarlos.",
+    "trustLine": "Los materiales de enseñanza de esta plataforma son creados y publicados por el pastor Lee Seong-gyun.",
     "ctaPrimary": "Comenzar gratis",
     "ctaSecondary": "Explorar",
     "feature1Title": "Redactor de sermones con IA",

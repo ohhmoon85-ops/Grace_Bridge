@@ -32,7 +32,12 @@
   "Landing": {
     "heroTagline": "Ein KI-Partner für die Predigt",
     "heroTitle": "Erleichtern Sie die Vorbereitung und verweilen Sie tiefer im Wort",
-    "heroSubtitle": "GraceBridge ist eine mehrsprachige Dienstplattform, die Pastoren bei der Predigtvorbereitung und Gläubige beim besseren Verständnis der Schrift unterstützt.",
+    "heroSubtitle": "GraceBridge ist ein mehrsprachiges Dienstwerkzeug für Pastoren, die ihre wöchentlichen Predigten und den Bibelunterricht vorbereiten.",
+    "featureResourcesTitle": "Materialien für den Dienst",
+    "featureResourcesDesc": "Finden Sie Lehrmaterialien, die sofort in Bibelstudium, Kleingruppen und Sonntagsschule einsetzbar sind.",
+    "featureSavedTitle": "Meine Predigten",
+    "featureSavedDesc": "Speichern Sie erstellte Predigten und öffnen Sie sie jederzeit zum Bearbeiten und Exportieren.",
+    "trustLine": "Die Lehrmaterialien auf dieser Plattform werden von Pastor Lee Seong-gyun erstellt und veröffentlicht.",
     "ctaPrimary": "Kostenlos starten",
     "ctaSecondary": "Entdecken",
     "feature1Title": "KI-Predigtschreiber",

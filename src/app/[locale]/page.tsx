@@ -2,7 +2,6 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link, redirect } from '@/i18n/navigation';
 import { createClient } from '@/lib/supabase/server';
 import { hasSupabaseEnv } from '@/lib/supabase/env';
-import { FEATURES } from '@/lib/features';
 import { getCurrentProfile } from '@/lib/auth';
 import type { Announcement } from '@/types/database';
 
@@ -36,42 +35,26 @@ export default async function LandingPage({
     announcements = (data as Announcement[]) ?? [];
   }
 
-  const pastorFeatures = [
+  // 목회자 전용 단일 기능 소개
+  const features = [
     {
       icon: '✍️',
       title: t('feature1Title'),
       desc: t('feature1Desc'),
       href: '/sermon',
     },
-  ];
-
-  const memberFeatures = [
     {
       icon: '📚',
-      title: t('feature2Title'),
-      desc: t('feature2Desc'),
+      title: t('featureResourcesTitle'),
+      desc: t('featureResourcesDesc'),
       href: '/library',
     },
-    ...(FEATURES.DEVOTIONAL
-      ? [
-          {
-            icon: '🙏',
-            title: t('featureDevotionTitle'),
-            desc: t('featureDevotionDesc'),
-            href: '/devotion',
-          },
-        ]
-      : []),
-    ...(FEATURES.BIBLE_QNA
-      ? [
-          {
-            icon: '💬',
-            title: t('featureQATitle'),
-            desc: t('featureQADesc'),
-            href: '/devotion/qa',
-          },
-        ]
-      : []),
+    {
+      icon: '📁',
+      title: t('featureSavedTitle'),
+      desc: t('featureSavedDesc'),
+      href: '/sermon/saved',
+    },
   ];
 
   return (
@@ -105,27 +88,20 @@ export default async function LandingPage({
         </div>
       </section>
 
-      {/* Features — 대상별 분리 */}
-      <section className="pb-6">
-        <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-brand-600">
-          {t('pastorTools')}
-        </h2>
+      {/* Features — 목회자 전용 단일 섹션 */}
+      <section className="pb-8">
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {pastorFeatures.map((f) => (
+          {features.map((f) => (
             <FeatureCard key={f.title} {...f} />
           ))}
         </div>
       </section>
 
-      <section className="pb-12">
-        <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-gray-500">
-          {t('memberTools')}
-        </h2>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {memberFeatures.map((f) => (
-            <FeatureCard key={f.title} {...f} />
-          ))}
-        </div>
+      {/* Trust line */}
+      <section className="mb-10">
+        <p className="rounded-2xl border border-gray-200 bg-white px-5 py-4 text-center text-sm text-gray-600 dark:border-gray-800 dark:bg-gray-900 dark:text-gray-300">
+          {t('trustLine')}
+        </p>
       </section>
 
       {/* Announcements */}
