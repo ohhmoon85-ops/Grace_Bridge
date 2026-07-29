@@ -1,5 +1,5 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server';
-import { redirect } from '@/i18n/navigation';
+import { redirect, Link } from '@/i18n/navigation';
 import { getCurrentProfile } from '@/lib/auth';
 import { signOutAction } from '../auth-actions';
 
@@ -68,6 +68,15 @@ export default async function ProfilePage({
         <p className="mt-4 rounded-lg bg-amber-50 px-3 py-2 text-xs leading-relaxed text-amber-800 dark:bg-amber-950/30 dark:text-amber-200">
           {t('pastorNote')}
         </p>
+      )}
+
+      {p.role === 'admin' && (
+        <Link
+          href="/admin"
+          className="tap-target mt-6 flex w-full items-center justify-center gap-2 rounded-xl bg-brand-600 px-4 py-3 text-sm font-semibold text-white hover:bg-brand-700"
+        >
+          🛠️ {roles('admin')}
+        </Link>
       )}
 
       <form action={signOutAction} className="mt-8">
