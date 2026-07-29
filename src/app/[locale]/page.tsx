@@ -28,13 +28,16 @@ export default async function LandingPage({
     announcements = (data as Announcement[]) ?? [];
   }
 
-  const features = [
+  const pastorFeatures = [
     {
       icon: '✍️',
       title: t('feature1Title'),
       desc: t('feature1Desc'),
       href: '/sermon',
     },
+  ];
+
+  const memberFeatures = [
     {
       icon: '📚',
       title: t('feature2Title'),
@@ -42,10 +45,16 @@ export default async function LandingPage({
       href: '/library',
     },
     {
-      icon: '🌍',
-      title: t('feature3Title'),
-      desc: t('feature3Desc'),
-      href: '/library',
+      icon: '🙏',
+      title: t('featureDevotionTitle'),
+      desc: t('featureDevotionDesc'),
+      href: '/devotion',
+    },
+    {
+      icon: '💬',
+      title: t('featureQATitle'),
+      desc: t('featureQADesc'),
+      href: '/devotion/qa',
     },
   ];
 
@@ -80,25 +89,27 @@ export default async function LandingPage({
         </div>
       </section>
 
-      {/* Features */}
-      <section className="grid gap-4 pb-12 sm:grid-cols-2 lg:grid-cols-3">
-        {features.map((f) => (
-          <Link
-            key={f.title}
-            href={f.href}
-            className="group rounded-2xl border border-gray-200 bg-white p-6 transition hover:border-brand-300 hover:shadow-md dark:border-gray-800 dark:bg-gray-900"
-          >
-            <div className="mb-3 text-3xl" aria-hidden>
-              {f.icon}
-            </div>
-            <h3 className="mb-2 text-lg font-semibold text-gray-900 dark:text-white">
-              {f.title}
-            </h3>
-            <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-300">
-              {f.desc}
-            </p>
-          </Link>
-        ))}
+      {/* Features — 대상별 분리 */}
+      <section className="pb-6">
+        <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-brand-600">
+          {t('pastorTools')}
+        </h2>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {pastorFeatures.map((f) => (
+            <FeatureCard key={f.title} {...f} />
+          ))}
+        </div>
+      </section>
+
+      <section className="pb-12">
+        <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-gray-500">
+          {t('memberTools')}
+        </h2>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {memberFeatures.map((f) => (
+            <FeatureCard key={f.title} {...f} />
+          ))}
+        </div>
       </section>
 
       {/* Announcements */}
@@ -135,5 +146,34 @@ export default async function LandingPage({
         </div>
       </section>
     </div>
+  );
+}
+
+function FeatureCard({
+  icon,
+  title,
+  desc,
+  href,
+}: {
+  icon: string;
+  title: string;
+  desc: string;
+  href: string;
+}) {
+  return (
+    <Link
+      href={href}
+      className="group rounded-2xl border border-gray-200 bg-white p-6 transition hover:border-brand-300 hover:shadow-md dark:border-gray-800 dark:bg-gray-900"
+    >
+      <div className="mb-3 text-3xl" aria-hidden>
+        {icon}
+      </div>
+      <h3 className="mb-2 text-lg font-semibold text-gray-900 dark:text-white">
+        {title}
+      </h3>
+      <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-300">
+        {desc}
+      </p>
+    </Link>
   );
 }
