@@ -53,14 +53,15 @@ cp .env.example .env.local
 ### 3. Supabase 초기 설정
 
 1. [supabase.com](https://supabase.com)에서 프로젝트 생성
-2. **SQL Editor**에서 [`supabase/schema.sql`](supabase/schema.sql) 전체를 붙여넣고 실행
-   - 모든 테이블 + RLS 정책 + 신규 가입 트리거가 생성됩니다
+2. **SQL Editor**에서 [`supabase/schema_grace_bridge.sql`](supabase/schema_grace_bridge.sql) 전체를 붙여넣고 실행
+   - **공유 Supabase 환경 전용** — 모든 테이블·enum·함수·트리거에 `grace_bridge_` 접두어가 붙습니다
+   - `auth.users`는 공유되므로, 트리거가 `user_metadata.app_name = 'grace-bridge'`인 가입만 처리합니다
    - (선택) [`supabase/seed.sql`](supabase/seed.sql)을 실행하면 시연용 샘플 콘텐츠·묵상글이 추가됩니다
-3. **Authentication > Providers**에서 Email, Google OAuth 활성화
-   - Google OAuth: 리디렉션 URL에 `https://<도메인>/auth/callback` 추가
+   - 단일 전용 프로젝트라면 접두어 없는 [`supabase/schema.sql`](supabase/schema.sql)을 대신 사용할 수 있습니다
+3. **Authentication > Providers**에서 Email 활성화 (이메일/비밀번호 로그인)
 4. 첫 관리자 지정: SQL Editor에서 아래 실행
    ```sql
-   update public.profiles set role = 'admin', approved = true
+   update public.grace_bridge_profiles set role = 'admin', approved = true
    where email = '관리자이메일@example.com';
    ```
 

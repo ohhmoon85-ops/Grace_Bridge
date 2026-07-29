@@ -14,7 +14,7 @@ export default async function EditContentPage({
 
   const supabase = await createClient();
   const { data } = await supabase
-    .from('contents')
+    .from('grace_bridge_contents')
     .select('*')
     .eq('id', id)
     .single();

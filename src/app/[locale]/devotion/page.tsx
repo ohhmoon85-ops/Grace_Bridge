@@ -22,7 +22,7 @@ export default async function DevotionPage({
     const supabase = await createClient();
     const today = new Date().toISOString().slice(0, 10);
     const { data } = await supabase
-      .from('devotionals')
+      .from('grace_bridge_devotionals')
       .select('*')
       .eq('status', 'published')
       .eq('language', locale)

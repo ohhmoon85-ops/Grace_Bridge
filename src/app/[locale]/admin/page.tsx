@@ -22,33 +22,33 @@ export default async function AdminDashboard() {
     sermonCount,
     pendingDevotionals,
   ] = await Promise.all([
-    supabase.from('profiles').select('*', { count: 'exact', head: true }),
+    supabase.from('grace_bridge_profiles').select('*', { count: 'exact', head: true }),
     supabase
-      .from('profiles')
+      .from('grace_bridge_profiles')
       .select('*', { count: 'exact', head: true })
       .eq('role', 'pastor'),
     supabase
-      .from('profiles')
+      .from('grace_bridge_profiles')
       .select('*', { count: 'exact', head: true })
       .eq('role', 'pastor')
       .eq('approved', false),
-    supabase.from('contents').select('*', { count: 'exact', head: true }),
+    supabase.from('grace_bridge_contents').select('*', { count: 'exact', head: true }),
     supabase
-      .from('contents')
+      .from('grace_bridge_contents')
       .select('*', { count: 'exact', head: true })
       .eq('published', true),
     supabase
-      .from('usage_logs')
+      .from('grace_bridge_usage_logs')
       .select('*', { count: 'exact', head: true })
       .in('action', ['sermon_full', 'sermon_summary']),
     supabase
-      .from('devotionals')
+      .from('grace_bridge_devotionals')
       .select('*', { count: 'exact', head: true })
       .neq('status', 'published'),
   ]);
 
   // 언어별 사용자 분포
-  const { data: localeRows } = await supabase.from('profiles').select('locale');
+  const { data: localeRows } = await supabase.from('grace_bridge_profiles').select('locale');
   const localeDist: Record<string, number> = {};
   (localeRows ?? []).forEach((r: { locale: string }) => {
     localeDist[r.locale] = (localeDist[r.locale] ?? 0) + 1;
@@ -56,7 +56,7 @@ export default async function AdminDashboard() {
 
   // 인기 콘텐츠
   const { data: popular } = await supabase
-    .from('contents')
+    .from('grace_bridge_contents')
     .select('id, title, view_count')
     .order('view_count', { ascending: false })
     .limit(5);

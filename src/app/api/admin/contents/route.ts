@@ -20,7 +20,7 @@ export async function POST(request: Request) {
 
   const supabase = await createClient();
   const { data, error } = await supabase
-    .from('contents')
+    .from('grace_bridge_contents')
     .insert({ ...normalizeContent(parsed.data), created_by: guard.profile.id })
     .select('id')
     .single();

@@ -17,7 +17,7 @@ export async function getCurrentProfile(): Promise<Profile | null> {
   if (!user) return null;
 
   const { data: profile } = await supabase
-    .from('profiles')
+    .from('grace_bridge_profiles')
     .select('*')
     .eq('id', user.id)
     .single();

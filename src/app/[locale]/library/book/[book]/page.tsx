@@ -25,7 +25,7 @@ export default async function BookContentsPage({
   if (hasSupabaseEnv()) {
     const supabase = await createClient();
     const { data } = await supabase
-      .from('contents')
+      .from('grace_bridge_contents')
       .select('*')
       .eq('published', true)
       .eq('book', book)

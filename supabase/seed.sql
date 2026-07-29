@@ -1,11 +1,12 @@
 -- =====================================================================
 -- GraceBridge — 샘플 데이터 (시연용)
--- schema.sql 실행 후, SQL Editor 에 붙여넣어 실행하세요.
+-- schema_grace_bridge.sql 실행 후, SQL Editor 에 붙여넣어 실행하세요.
+-- (공유 Supabase용 접두어 grace_bridge_ 테이블 대상)
 -- 슬라이드 콘텐츠 2건 + 묵상글 3건.
 -- =====================================================================
 
 -- ---------- 슬라이드 콘텐츠 2건 ----------
-insert into public.contents
+insert into public.grace_bridge_contents
   (type, title, description, book, language, audience, slide_json, published)
 values
 (
@@ -47,7 +48,7 @@ values
 );
 
 -- ---------- 묵상글 3건 ----------
-insert into public.devotionals (date, verse_ref, body_md, language, status)
+insert into public.grace_bridge_devotionals (date, verse_ref, body_md, language, status)
 values
 (
   current_date,

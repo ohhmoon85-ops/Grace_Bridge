@@ -29,7 +29,7 @@ export default async function ContentDetailPage({
   } = await supabase.auth.getUser();
 
   const { data } = await supabase
-    .from('contents')
+    .from('grace_bridge_contents')
     .select('*')
     .eq('id', id)
     .single();
@@ -40,7 +40,7 @@ export default async function ContentDetailPage({
   const content = data as Content;
 
   // 조회수 증가 (실패해도 무시)
-  await supabase.rpc('increment_view_count', { content_id: id });
+  await supabase.rpc('grace_bridge_increment_view_count', { content_id: id });
 
   const t = await getTranslations('Library');
 

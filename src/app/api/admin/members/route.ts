@@ -23,7 +23,7 @@ export async function PATCH(request: Request) {
   const { id, ...updates } = parsed.data;
 
   const supabase = await createClient();
-  const { error } = await supabase.from('profiles').update(updates).eq('id', id);
+  const { error } = await supabase.from('grace_bridge_profiles').update(updates).eq('id', id);
   if (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }

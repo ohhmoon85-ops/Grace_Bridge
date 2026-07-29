@@ -30,7 +30,7 @@ export async function PATCH(
   }
 
   const { error } = await supabase
-    .from('sermons')
+    .from('grace_bridge_sermons')
     .update({ ...parsed.data, updated_at: new Date().toISOString() })
     .eq('id', id)
     .eq('user_id', user.id);
@@ -55,7 +55,7 @@ export async function DELETE(
   }
 
   const { error } = await supabase
-    .from('sermons')
+    .from('grace_bridge_sermons')
     .delete()
     .eq('id', id)
     .eq('user_id', user.id);

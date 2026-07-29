@@ -38,7 +38,7 @@ export async function POST(request: Request) {
   }));
 
   const supabase = await createClient();
-  const { error } = await supabase.from('announcements').insert(rows);
+  const { error } = await supabase.from('grace_bridge_announcements').insert(rows);
   if (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }

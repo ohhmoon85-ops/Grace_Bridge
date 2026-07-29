@@ -9,7 +9,7 @@ export default async function AdminMembersPage() {
   }
   const supabase = await createClient();
   const { data } = await supabase
-    .from('profiles')
+    .from('grace_bridge_profiles')
     .select('*')
     .order('approved', { ascending: true })
     .order('created_at', { ascending: false });

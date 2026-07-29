@@ -22,7 +22,7 @@ export default async function SavedSermonDetail({
   }
 
   const { data } = await supabase
-    .from('sermons')
+    .from('grace_bridge_sermons')
     .select('*')
     .eq('id', id)
     .single();

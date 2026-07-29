@@ -25,7 +25,7 @@ export async function POST(request: Request) {
 
   const supabase = await createClient();
   const { data, error } = await supabase
-    .from('devotionals')
+    .from('grace_bridge_devotionals')
     .insert(parsed.data)
     .select('id')
     .single();

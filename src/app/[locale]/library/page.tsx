@@ -34,7 +34,7 @@ export default async function LibraryPage({
   if (hasFilter && hasSupabaseEnv()) {
     const supabase = await createClient();
     let query = supabase
-      .from('contents')
+      .from('grace_bridge_contents')
       .select('*')
       .eq('published', true);
     if (lang) query = query.eq('language', lang);

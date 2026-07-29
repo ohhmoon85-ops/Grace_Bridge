@@ -9,7 +9,7 @@ export default async function AdminDevotionalsPage() {
   }
   const supabase = await createClient();
   const { data } = await supabase
-    .from('devotionals')
+    .from('grace_bridge_devotionals')
     .select('*')
     .order('date', { ascending: false })
     .limit(60);

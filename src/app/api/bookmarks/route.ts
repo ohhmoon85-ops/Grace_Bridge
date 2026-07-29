@@ -19,7 +19,7 @@ async function requireUser() {
 export async function GET() {
   const { supabase, user } = await requireUser();
   if (!user) return NextResponse.json({ ids: [] });
-  const { data } = await supabase.from('bookmarks').select('content_id');
+  const { data } = await supabase.from('grace_bridge_bookmarks').select('content_id');
   return NextResponse.json({
     ids: (data ?? []).map((r) => r.content_id),
   });
@@ -36,7 +36,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'invalid_input' }, { status: 400 });
   }
   const { error } = await supabase
-    .from('bookmarks')
+    .from('grace_bridge_bookmarks')
     .upsert(
       { user_id: user.id, content_id: parsed.data.content_id },
       { onConflict: 'user_id,content_id' }
@@ -58,7 +58,7 @@ export async function DELETE(request: Request) {
     return NextResponse.json({ error: 'invalid_input' }, { status: 400 });
   }
   const { error } = await supabase
-    .from('bookmarks')
+    .from('grace_bridge_bookmarks')
     .delete()
     .eq('user_id', user.id)
     .eq('content_id', parsed.data.content_id);

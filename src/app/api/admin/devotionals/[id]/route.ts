@@ -26,7 +26,7 @@ export async function PATCH(
 
   const supabase = await createClient();
   const { error } = await supabase
-    .from('devotionals')
+    .from('grace_bridge_devotionals')
     .update(parsed.data)
     .eq('id', id);
   if (error) {
@@ -44,7 +44,7 @@ export async function DELETE(
   const { id } = await params;
 
   const supabase = await createClient();
-  const { error } = await supabase.from('devotionals').delete().eq('id', id);
+  const { error } = await supabase.from('grace_bridge_devotionals').delete().eq('id', id);
   if (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }

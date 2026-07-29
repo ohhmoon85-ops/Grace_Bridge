@@ -25,7 +25,7 @@ export async function checkDailyLimit(
 ): Promise<{ allowed: boolean; used: number; remaining: number }> {
   const admin = createAdminClient();
   const { count } = await admin
-    .from('usage_logs')
+    .from('grace_bridge_usage_logs')
     .select('*', { count: 'exact', head: true })
     .eq('user_id', userId)
     .eq('action', action)
@@ -45,7 +45,7 @@ export async function logUsage(
   meta: Record<string, unknown> = {}
 ): Promise<void> {
   const admin = createAdminClient();
-  await admin.from('usage_logs').insert({
+  await admin.from('grace_bridge_usage_logs').insert({
     user_id: userId,
     action,
     meta_json: meta,

@@ -29,7 +29,7 @@ export async function POST(request: Request) {
   }
 
   const { data, error } = await supabase
-    .from('sermons')
+    .from('grace_bridge_sermons')
     .insert({
       user_id: user.id,
       title: parsed.data.title,
@@ -57,7 +57,7 @@ export async function GET() {
   }
 
   const { data, error } = await supabase
-    .from('sermons')
+    .from('grace_bridge_sermons')
     .select('id, title, language, created_at, updated_at')
     .order('updated_at', { ascending: false });
 

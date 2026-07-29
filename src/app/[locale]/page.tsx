@@ -26,7 +26,7 @@ export default async function LandingPage({
   if (hasSupabaseEnv()) {
     const supabase = await createClient();
     const { data } = await supabase
-      .from('announcements')
+      .from('grace_bridge_announcements')
       .select('*')
       .eq('language', locale)
       .not('published_at', 'is', null)

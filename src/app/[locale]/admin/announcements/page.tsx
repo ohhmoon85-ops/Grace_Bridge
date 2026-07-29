@@ -9,7 +9,7 @@ export default async function AdminAnnouncementsPage() {
   }
   const supabase = await createClient();
   const { data } = await supabase
-    .from('announcements')
+    .from('grace_bridge_announcements')
     .select('*')
     .order('id', { ascending: false })
     .limit(60);
