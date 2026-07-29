@@ -3,6 +3,7 @@
 import { useTranslations } from 'next-intl';
 import { Link, usePathname } from '@/i18n/navigation';
 import type { UserRole } from '@/types/database';
+import { FEATURES } from '@/lib/features';
 
 export default function MobileTabBar({ role }: { role: UserRole | 'guest' }) {
   const t = useTranslations('Nav');
@@ -12,7 +13,9 @@ export default function MobileTabBar({ role }: { role: UserRole | 'guest' }) {
     { href: '/', label: t('home'), icon: '🏠' },
     { href: '/sermon', label: t('sermon'), icon: '✍️' },
     { href: '/library', label: t('library'), icon: '📚' },
-    { href: '/devotion', label: t('devotion'), icon: '🙏' },
+    ...(FEATURES.DEVOTIONAL
+      ? [{ href: '/devotion', label: t('devotion'), icon: '🙏' }]
+      : []),
     { href: '/profile', label: t('profile'), icon: '👤' },
   ];
 

@@ -3,6 +3,7 @@ import { z } from 'zod';
 import { getCurrentProfile } from '@/lib/auth';
 import { anthropic, SERMON_MODEL } from '@/lib/anthropic';
 import { checkDailyLimit, logUsage } from '@/lib/sermon/rate-limit';
+import { FEATURES } from '@/lib/features';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -42,6 +43,9 @@ Rules:
 }
 
 export async function POST(request: Request) {
+  if (!FEATURES.BIBLE_QNA) {
+    return NextResponse.json({ error: 'feature_disabled' }, { status: 403 });
+  }
   const profile = await getCurrentProfile();
   if (!profile) {
     return NextResponse.json({ error: 'unauthorized' }, { status: 401 });

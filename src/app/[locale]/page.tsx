@@ -2,6 +2,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { createClient } from '@/lib/supabase/server';
 import { hasSupabaseEnv } from '@/lib/supabase/env';
+import { FEATURES } from '@/lib/features';
 import type { Announcement } from '@/types/database';
 
 export default async function LandingPage({
@@ -44,18 +45,26 @@ export default async function LandingPage({
       desc: t('feature2Desc'),
       href: '/library',
     },
-    {
-      icon: '🙏',
-      title: t('featureDevotionTitle'),
-      desc: t('featureDevotionDesc'),
-      href: '/devotion',
-    },
-    {
-      icon: '💬',
-      title: t('featureQATitle'),
-      desc: t('featureQADesc'),
-      href: '/devotion/qa',
-    },
+    ...(FEATURES.DEVOTIONAL
+      ? [
+          {
+            icon: '🙏',
+            title: t('featureDevotionTitle'),
+            desc: t('featureDevotionDesc'),
+            href: '/devotion',
+          },
+        ]
+      : []),
+    ...(FEATURES.BIBLE_QNA
+      ? [
+          {
+            icon: '💬',
+            title: t('featureQATitle'),
+            desc: t('featureQADesc'),
+            href: '/devotion/qa',
+          },
+        ]
+      : []),
   ];
 
   return (

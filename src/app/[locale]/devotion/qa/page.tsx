@@ -1,6 +1,8 @@
+import { notFound } from 'next/navigation';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { getCurrentProfile } from '@/lib/auth';
+import { FEATURES } from '@/lib/features';
 import BibleQA from '@/components/qa/BibleQA';
 
 export default async function BibleQAPage({
@@ -10,6 +12,7 @@ export default async function BibleQAPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  if (!FEATURES.BIBLE_QNA) notFound();
 
   const profile = await getCurrentProfile();
   const t = await getTranslations('QA');

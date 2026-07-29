@@ -1,7 +1,9 @@
+import { notFound } from 'next/navigation';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { createClient } from '@/lib/supabase/server';
 import { hasSupabaseEnv } from '@/lib/supabase/env';
+import { FEATURES } from '@/lib/features';
 import type { Devotional } from '@/types/database';
 import Markdown from '@/components/Markdown';
 
@@ -12,6 +14,7 @@ export default async function DevotionPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  if (!FEATURES.DEVOTIONAL) notFound();
   const t = await getTranslations('Devotion');
 
   let devotionals: Devotional[] = [];

@@ -3,6 +3,7 @@ import { Link } from '@/i18n/navigation';
 import type { UserRole } from '@/types/database';
 import LanguageSwitcher from './LanguageSwitcher';
 import ThemeToggle from './ThemeToggle';
+import { FEATURES } from '@/lib/features';
 import { signOutAction } from '@/app/[locale]/auth-actions';
 
 export default async function Header({
@@ -67,7 +68,7 @@ async function DesktopLinks({ role }: { role: UserRole | 'guest' }) {
   const links = [
     { href: '/sermon', label: t('sermon') },
     { href: '/library', label: t('library') },
-    { href: '/devotion', label: t('devotion') },
+    ...(FEATURES.DEVOTIONAL ? [{ href: '/devotion', label: t('devotion') }] : []),
   ];
   return (
     <>
