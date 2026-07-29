@@ -27,7 +27,26 @@
     "library": "Materialien",
     "devotion": "Andacht",
     "profile": "Profil",
-    "admin": "Admin"
+    "admin": "Admin",
+    "pricing": "Preise"
+  },
+  "Pricing": {
+    "title": "Preise",
+    "subtitle": "Ein einziges Pastoren-Abonnement für Predigtvorbereitung und Materialien.",
+    "comingSoon": "Einführungspreise in Kürze",
+    "planFree": "Kostenlose Testphase",
+    "planStandard": "Standard",
+    "rowSermon": "KI-Predigterstellung",
+    "rowResources": "Materialien für den Dienst",
+    "rowSaved": "Predigt-Bibliothek",
+    "freeSermon": "3 insgesamt",
+    "freeResources": "3 Beispiele",
+    "freeSaved": "3 Predigten",
+    "stdSermon": "30 / Monat",
+    "stdResources": "Voller Zugriff + PDF-Download",
+    "stdSaved": "Unbegrenzt",
+    "cta": "Abonnement anfragen (Admin-Freigabe)",
+    "ctaNote": "Die Zahlung ist noch nicht integriert; Anfragen werden zur Administrator-Freigabe geleitet."
   },
   "Landing": {
     "heroTagline": "Ein KI-Partner für die Predigt",

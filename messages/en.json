@@ -27,7 +27,26 @@
     "library": "Resources",
     "devotion": "Devotion",
     "profile": "Profile",
-    "admin": "Admin"
+    "admin": "Admin",
+    "pricing": "Pricing"
+  },
+  "Pricing": {
+    "title": "Pricing",
+    "subtitle": "A single pastor subscription for sermon prep and ministry resources.",
+    "comingSoon": "Launch pricing coming soon",
+    "planFree": "Free trial",
+    "planStandard": "Standard",
+    "rowSermon": "AI sermon generation",
+    "rowResources": "Ministry Resources",
+    "rowSaved": "Sermon library",
+    "freeSermon": "3 total",
+    "freeResources": "3 samples",
+    "freeSaved": "3 sermons",
+    "stdSermon": "30 / month",
+    "stdResources": "Full access + PDF download",
+    "stdSaved": "Unlimited",
+    "cta": "Request subscription (admin approval)",
+    "ctaNote": "Payment is not yet integrated; requests are routed to administrator approval."
   },
   "Landing": {
     "heroTagline": "An AI sermon partner for pastors",

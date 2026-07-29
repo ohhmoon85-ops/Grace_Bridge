@@ -27,7 +27,26 @@
     "library": "Recursos",
     "devotion": "Devoción",
     "profile": "Perfil",
-    "admin": "Admin"
+    "admin": "Admin",
+    "pricing": "Precios"
+  },
+  "Pricing": {
+    "title": "Precios",
+    "subtitle": "Una única suscripción para pastores, para la preparación de sermones y los recursos.",
+    "comingSoon": "Precios de lanzamiento próximamente",
+    "planFree": "Prueba gratuita",
+    "planStandard": "Estándar",
+    "rowSermon": "Generación de sermones con IA",
+    "rowResources": "Recursos pastorales",
+    "rowSaved": "Biblioteca de sermones",
+    "freeSermon": "3 en total",
+    "freeResources": "3 muestras",
+    "freeSaved": "3 sermones",
+    "stdSermon": "30 / mes",
+    "stdResources": "Acceso completo + descarga PDF",
+    "stdSaved": "Ilimitado",
+    "cta": "Solicitar suscripción (aprobación admin)",
+    "ctaNote": "El pago aún no está integrado; las solicitudes se dirigen a la aprobación del administrador."
   },
   "Landing": {
     "heroTagline": "Un compañero de IA para la predicación",

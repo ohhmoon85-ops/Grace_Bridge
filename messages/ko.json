@@ -27,7 +27,26 @@
     "library": "목회 자료실",
     "devotion": "묵상",
     "profile": "내 정보",
-    "admin": "관리자"
+    "admin": "관리자",
+    "pricing": "요금제"
+  },
+  "Pricing": {
+    "title": "요금제",
+    "subtitle": "설교 준비와 목회 자료를 위한 목회자 단일 구독입니다.",
+    "comingSoon": "출시 기념 가격 준비 중",
+    "planFree": "무료 체험",
+    "planStandard": "스탠다드",
+    "rowSermon": "AI 설교 생성",
+    "rowResources": "목회 자료실",
+    "rowSaved": "설교 보관함",
+    "freeSermon": "총 3회",
+    "freeResources": "샘플 3개",
+    "freeSaved": "3편",
+    "stdSermon": "월 30회",
+    "stdResources": "전체 이용 + PDF 다운로드",
+    "stdSaved": "무제한",
+    "cta": "구독 신청 (관리자 승인)",
+    "ctaNote": "결제 연동 전이며, 신청 시 관리자 승인 절차로 연결됩니다."
   },
   "Landing": {
     "heroTagline": "목회자를 위한 AI 설교 동역자",

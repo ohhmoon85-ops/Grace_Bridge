@@ -69,6 +69,7 @@ async function DesktopLinks({ role }: { role: UserRole | 'guest' }) {
     { href: '/sermon', label: t('sermon') },
     { href: '/library', label: t('library') },
     ...(FEATURES.DEVOTIONAL ? [{ href: '/devotion', label: t('devotion') }] : []),
+    { href: '/pricing', label: t('pricing') },
   ];
   return (
     <>

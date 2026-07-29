@@ -27,7 +27,26 @@
     "library": "Ressources",
     "devotion": "Méditation",
     "profile": "Profil",
-    "admin": "Admin"
+    "admin": "Admin",
+    "pricing": "Tarifs"
+  },
+  "Pricing": {
+    "title": "Tarifs",
+    "subtitle": "Un abonnement unique pour pasteurs, pour la préparation des prédications et les ressources.",
+    "comingSoon": "Tarifs de lancement à venir",
+    "planFree": "Essai gratuit",
+    "planStandard": "Standard",
+    "rowSermon": "Génération de prédication IA",
+    "rowResources": "Ressources pastorales",
+    "rowSaved": "Bibliothèque de prédications",
+    "freeSermon": "3 au total",
+    "freeResources": "3 exemples",
+    "freeSaved": "3 prédications",
+    "stdSermon": "30 / mois",
+    "stdResources": "Accès complet + téléchargement PDF",
+    "stdSaved": "Illimité",
+    "cta": "Demander l'abonnement (approbation admin)",
+    "ctaNote": "Le paiement n'est pas encore intégré ; les demandes sont dirigées vers l'approbation de l'administrateur."
   },
   "Landing": {
     "heroTagline": "Un partenaire IA pour la prédication",
