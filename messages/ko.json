@@ -24,7 +24,7 @@
   "Nav": {
     "home": "홈",
     "sermon": "설교 작성",
-    "library": "라이브러리",
+    "library": "목회 자료실",
     "devotion": "묵상",
     "profile": "내 정보",
     "admin": "관리자"
@@ -148,8 +148,12 @@
     "remainingToday": "오늘 남은 횟수"
   },
   "Library": {
-    "title": "성경 이해 라이브러리",
-    "subtitle": "성경 66권 구조로 정리된 슬라이드·영상·자료를 탐색하세요.",
+    "title": "목회 자료실",
+    "subtitle": "성경공부·소그룹·주일학교 현장에서 바로 쓰는 교육 자료를 성경 66권 구조로 정리했습니다.",
+    "filterPurpose": "용도",
+    "usageTip": "이 자료 활용 팁",
+    "downloadSlidesPdf": "슬라이드 PDF (16:9)",
+    "downloadHandout": "인쇄용 유인물 (A4)",
     "oldTestament": "구약",
     "newTestament": "신약",
     "browseByBook": "성경순 탐색",

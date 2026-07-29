@@ -125,3 +125,97 @@ export function exportPdf(title: string, content: string) {
   win.focus();
   win.setTimeout(() => win.print(), 300);
 }
+
+type SlideItem = { title: string; body: string; note?: string };
+
+function escHtml(s: string): string {
+  return s
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+}
+
+const SLIDE_FONT =
+  "'Malgun Gothic','Apple SD Gothic Neo','Noto Sans KR',sans-serif";
+
+function openPrintWindow(html: string) {
+  const win = window.open('', '_blank');
+  if (!win) return;
+  win.document.write(html);
+  win.document.close();
+  win.focus();
+  win.setTimeout(() => win.print(), 400);
+}
+
+/** 슬라이드 발표용 PDF (16:9, 한 장에 슬라이드 하나) */
+export function exportSlidesPdf(title: string, slides: SlideItem[]) {
+  const pages = slides
+    .map(
+      (s) => `<section class="slide">
+        <h2>${escHtml(s.title)}</h2>
+        <p>${escHtml(s.body)}</p>
+      </section>`
+    )
+    .join('\n');
+
+  openPrintWindow(`<!doctype html><html><head><meta charset="utf-8">
+    <title>${escHtml(title)}</title>
+    <style>
+      @page { size: 1280px 720px; margin: 0; }
+      * { box-sizing: border-box; }
+      body { margin: 0; font-family: ${SLIDE_FONT}; }
+      .slide {
+        width: 1280px; height: 720px; padding: 90px;
+        display: flex; flex-direction: column; align-items: center; justify-content: center;
+        text-align: center; page-break-after: always;
+        background: #1b358a; color: #fff;
+      }
+      .slide h2 { font-size: 52px; margin: 0 0 28px; }
+      .slide p { font-size: 32px; line-height: 1.5; margin: 0; max-width: 1000px; white-space: pre-wrap; }
+    </style></head><body>${pages}</body></html>`);
+}
+
+/** 인쇄용 유인물 PDF (A4 세로, 페이지당 슬라이드 2장 + 메모 칸) */
+export function exportSlidesHandout(title: string, slides: SlideItem[]) {
+  const items = slides
+    .map(
+      (s, i) => `<div class="item">
+        <div class="num">${i + 1}</div>
+        <div class="content">
+          <h3>${escHtml(s.title)}</h3>
+          <p>${escHtml(s.body)}</p>
+          ${s.note ? `<p class="note">📝 ${escHtml(s.note)}</p>` : ''}
+        </div>
+        <div class="memo">
+          <span class="memo-label">메모</span>
+          <div class="lines"></div>
+        </div>
+      </div>`
+    )
+    .join('\n');
+
+  openPrintWindow(`<!doctype html><html><head><meta charset="utf-8">
+    <title>${escHtml(title)} — 유인물</title>
+    <style>
+      @page { size: A4 portrait; margin: 14mm; }
+      * { box-sizing: border-box; }
+      body { margin: 0; font-family: ${SLIDE_FONT}; color: #1D2440; }
+      h1 { font-size: 18px; margin: 0 0 10mm; }
+      .item {
+        display: flex; gap: 8px; height: 122mm; break-inside: avoid;
+        border: 1px solid #DAD6C8; border-radius: 6px; padding: 8mm; margin-bottom: 6mm;
+      }
+      .num { font-weight: 700; color: #B8912E; min-width: 20px; }
+      .content { flex: 1; }
+      .content h3 { font-size: 15px; margin: 0 0 6px; }
+      .content p { font-size: 12.5px; line-height: 1.6; margin: 0 0 6px; white-space: pre-wrap; }
+      .content .note { color: #6b5544; font-size: 11px; }
+      .memo { width: 46%; border-left: 1px dashed #DAD6C8; padding-left: 6mm; }
+      .memo-label { font-size: 10px; color: #999; }
+      .lines { margin-top: 6px; height: 88mm;
+        background-image: repeating-linear-gradient(#fff 0, #fff 9mm, #E5E2D6 9mm, #E5E2D6 9.3mm); }
+    </style></head><body>
+    <h1>${escHtml(title)}</h1>
+    ${items}
+    </body></html>`);
+}

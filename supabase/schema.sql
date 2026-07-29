@@ -60,9 +60,11 @@ create table if not exists public.contents (
   type        content_type not null,
   title       text not null,
   description text,
-  book        text,
-  language    text not null default 'ko',
-  audience    text not null default 'all',   -- 'pastor' | 'all'
+  book         text,
+  language     text not null default 'ko',
+  audience     text not null default 'all',   -- (레거시) 'pastor' | 'all'
+  purpose_tags text[] not null default '{}',  -- 용도 태그: sermon-aid, bible-study, new-family, small-group, sunday-school
+  usage_tip    text,                          -- 이 자료 활용 팁 (관리자 입력)
   slide_json  jsonb,
   video_url   text,
   file_url    text,

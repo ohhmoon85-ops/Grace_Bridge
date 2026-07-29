@@ -4,6 +4,7 @@ import { useTranslations, useLocale } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import type { Content, AppLocale } from '@/types/database';
 import { bookName } from '@/lib/bible/books';
+import { purposeLabel } from '@/lib/library/tags';
 import { youtubeThumb } from '@/lib/youtube';
 
 const TYPE_ICON: Record<string, string> = {
@@ -60,6 +61,18 @@ export default function ContentCard({ content }: { content: Content }) {
           <p className="mt-1 line-clamp-2 text-sm text-gray-600 dark:text-gray-300">
             {content.description}
           </p>
+        )}
+        {content.purpose_tags && content.purpose_tags.length > 0 && (
+          <div className="mt-2 flex flex-wrap gap-1">
+            {content.purpose_tags.slice(0, 3).map((tag) => (
+              <span
+                key={tag}
+                className="rounded-full bg-brand-50 px-2 py-0.5 text-[11px] font-medium text-brand-700 dark:bg-brand-900/30 dark:text-brand-200"
+              >
+                {purposeLabel(tag, locale)}
+              </span>
+            ))}
+          </div>
         )}
         <div className="mt-3 flex items-center gap-2 text-xs text-gray-400">
           {content.book && <span>{bookName(content.book, locale)}</span>}

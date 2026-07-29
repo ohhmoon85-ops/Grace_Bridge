@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from '@/i18n/navigation';
 import { BIBLE_BOOKS } from '@/lib/bible/books';
+import { PURPOSE_TAGS } from '@/lib/library/tags';
 import type { ContentInput } from '@/lib/content/schema';
 import type { SlideData } from '@/types/database';
 
@@ -28,6 +29,10 @@ export default function ContentForm({
     initial?.audience ?? 'all'
   );
   const [published, setPublished] = useState(initial?.published ?? false);
+  const [purposeTags, setPurposeTags] = useState<string[]>(
+    initial?.purpose_tags ?? []
+  );
+  const [usageTip, setUsageTip] = useState(initial?.usage_tip ?? '');
   const [videoUrl, setVideoUrl] = useState(initial?.video_url ?? '');
   const [fileUrl, setFileUrl] = useState(initial?.file_url ?? '');
   const [design, setDesign] = useState<SlideData['design']>(
@@ -39,6 +44,12 @@ export default function ContentForm({
 
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState('');
+
+  function togglePurpose(id: string) {
+    setPurposeTags((prev) =>
+      prev.includes(id) ? prev.filter((t) => t !== id) : [...prev, id]
+    );
+  }
 
   function updateSlide(i: number, patch: Partial<Slide>) {
     setSlides((prev) => prev.map((s, idx) => (idx === i ? { ...s, ...patch } : s)));
@@ -65,6 +76,8 @@ export default function ContentForm({
       language: language as ContentInput['language'],
       audience,
       published,
+      purpose_tags: purposeTags as ContentInput['purpose_tags'],
+      usage_tip: usageTip,
       video_url: videoUrl,
       file_url: fileUrl,
       slide_json:
@@ -161,6 +174,36 @@ export default function ContentForm({
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           rows={2}
+          className={input}
+        />
+      </div>
+
+      <div>
+        <label className={labelC}>용도 태그</label>
+        <div className="flex flex-wrap gap-2">
+          {PURPOSE_TAGS.map((tag) => (
+            <button
+              key={tag.id}
+              type="button"
+              onClick={() => togglePurpose(tag.id)}
+              className={`rounded-full border px-3 py-1.5 text-sm font-medium transition ${
+                purposeTags.includes(tag.id)
+                  ? 'border-brand-600 bg-brand-50 text-brand-700 dark:bg-brand-900/30 dark:text-brand-200'
+                  : 'border-gray-300 text-gray-600 dark:border-gray-700 dark:text-gray-300'
+              }`}
+            >
+              {tag.labels.ko}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <label className={labelC}>이 자료 활용 팁 (선택)</label>
+        <input
+          value={usageTip}
+          onChange={(e) => setUsageTip(e.target.value)}
+          placeholder="예: 새가족 교육 2주차에 사용 권장"
           className={input}
         />
       </div>

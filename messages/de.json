@@ -24,7 +24,7 @@
   "Nav": {
     "home": "Start",
     "sermon": "Predigt",
-    "library": "Bibliothek",
+    "library": "Materialien",
     "devotion": "Andacht",
     "profile": "Profil",
     "admin": "Admin"
@@ -148,8 +148,12 @@
     "remainingToday": "Heute übrig"
   },
   "Library": {
-    "title": "Bibel-Bibliothek",
-    "subtitle": "Durchstöbern Sie Folien, Videos und Materialien, geordnet nach den 66 Büchern der Bibel.",
+    "title": "Materialien für den Dienst",
+    "subtitle": "Sofort einsetzbare Lehrmaterialien für Bibelstudium, Kleingruppen und Sonntagsschule, geordnet nach den 66 Büchern der Bibel.",
+    "filterPurpose": "Verwendung",
+    "usageTip": "Nutzungstipp",
+    "downloadSlidesPdf": "Folien-PDF (16:9)",
+    "downloadHandout": "Druckbares Handout (A4)",
     "oldTestament": "Altes Testament",
     "newTestament": "Neues Testament",
     "browseByBook": "Nach Buch durchsuchen",

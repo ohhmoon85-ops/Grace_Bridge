@@ -1,29 +1,32 @@
 'use client';
 
 import { useState } from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { useRouter } from '@/i18n/navigation';
 import { locales } from '@/i18n/routing';
+import { PURPOSE_TAGS } from '@/lib/library/tags';
+import type { AppLocale } from '@/types/database';
 
 interface Props {
   q: string;
   lang: string;
   type: string;
-  audience: string;
+  purpose: string;
 }
 
-export default function SearchFilterBar({ q, lang, type, audience }: Props) {
+export default function SearchFilterBar({ q, lang, type, purpose }: Props) {
   const t = useTranslations('Library');
+  const locale = useLocale() as AppLocale;
   const router = useRouter();
   const [query, setQuery] = useState(q);
 
   function apply(next: Partial<Props>) {
-    const merged = { q: query, lang, type, audience, ...next };
+    const merged = { q: query, lang, type, purpose, ...next };
     const params: Record<string, string> = {};
     if (merged.q) params.q = merged.q;
     if (merged.lang) params.lang = merged.lang;
     if (merged.type) params.type = merged.type;
-    if (merged.audience) params.audience = merged.audience;
+    if (merged.purpose) params.purpose = merged.purpose;
     router.push({ pathname: '/library', query: params });
   }
 
@@ -55,15 +58,15 @@ export default function SearchFilterBar({ q, lang, type, audience }: Props) {
 
       <div className="flex flex-wrap gap-2">
         <select
-          value={lang}
-          onChange={(e) => apply({ lang: e.target.value })}
+          value={purpose}
+          onChange={(e) => apply({ purpose: e.target.value })}
           className={selectClass}
-          aria-label={t('filterLanguage')}
+          aria-label={t('filterPurpose')}
         >
-          <option value="">{t('filterLanguage')}: {t('all')}</option>
-          {locales.map((l) => (
-            <option key={l} value={l}>
-              {l.toUpperCase()}
+          <option value="">{t('filterPurpose')}: {t('all')}</option>
+          {PURPOSE_TAGS.map((tag) => (
+            <option key={tag.id} value={tag.id}>
+              {tag.labels[locale]}
             </option>
           ))}
         </select>
@@ -81,14 +84,17 @@ export default function SearchFilterBar({ q, lang, type, audience }: Props) {
         </select>
 
         <select
-          value={audience}
-          onChange={(e) => apply({ audience: e.target.value })}
+          value={lang}
+          onChange={(e) => apply({ lang: e.target.value })}
           className={selectClass}
-          aria-label={t('filterAudience')}
+          aria-label={t('filterLanguage')}
         >
-          <option value="">{t('filterAudience')}: {t('all')}</option>
-          <option value="all">{t('audienceAll')}</option>
-          <option value="pastor">{t('audiencePastor')}</option>
+          <option value="">{t('filterLanguage')}: {t('all')}</option>
+          {locales.map((l) => (
+            <option key={l} value={l}>
+              {l.toUpperCase()}
+            </option>
+          ))}
         </select>
       </div>
     </div>

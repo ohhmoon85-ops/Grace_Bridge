@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { PURPOSE_TAG_IDS } from '@/lib/library/tags';
 
 export const slideSchema = z.object({
   title: z.string().max(200),
@@ -18,6 +19,8 @@ export const contentSchema = z.object({
   book: z.string().max(60).optional().default(''),
   language: z.enum(['ko', 'en', 'fr', 'es', 'de']),
   audience: z.enum(['all', 'pastor']),
+  purpose_tags: z.array(z.enum(PURPOSE_TAG_IDS)).max(5).optional().default([]),
+  usage_tip: z.string().max(500).optional().default(''),
   slide_json: slideDataSchema.nullable().optional(),
   video_url: z.string().max(500).optional().default(''),
   file_url: z.string().max(500).optional().default(''),
@@ -35,6 +38,8 @@ export function normalizeContent(input: ContentInput) {
     book: input.book || null,
     language: input.language,
     audience: input.audience,
+    purpose_tags: input.purpose_tags ?? [],
+    usage_tip: input.usage_tip || null,
     slide_json: input.type === 'slide' ? (input.slide_json ?? null) : null,
     video_url: input.type === 'video' ? input.video_url || null : null,
     file_url: input.type === 'pdf' ? input.file_url || null : null,

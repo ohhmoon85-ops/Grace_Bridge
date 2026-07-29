@@ -48,6 +48,8 @@ export interface Content {
   book: string | null;
   language: AppLocale;
   audience: 'pastor' | 'all';
+  purpose_tags: string[];
+  usage_tip: string | null;
   slide_json: SlideData | null;
   video_url: string | null;
   file_url: string | null;

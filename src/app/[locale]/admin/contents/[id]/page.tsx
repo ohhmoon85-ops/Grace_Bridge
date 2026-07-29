@@ -37,6 +37,8 @@ export default async function EditContentPage({
           language: c.language,
           audience: c.audience,
           published: c.published,
+          purpose_tags: c.purpose_tags ?? [],
+          usage_tip: c.usage_tip ?? '',
           video_url: c.video_url ?? '',
           file_url: c.file_url ?? '',
           slide_json: c.slide_json,

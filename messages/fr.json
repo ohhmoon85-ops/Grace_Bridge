@@ -24,7 +24,7 @@
   "Nav": {
     "home": "Accueil",
     "sermon": "Prédication",
-    "library": "Bibliothèque",
+    "library": "Ressources",
     "devotion": "Méditation",
     "profile": "Profil",
     "admin": "Admin"
@@ -148,8 +148,12 @@
     "remainingToday": "Restant aujourd'hui"
   },
   "Library": {
-    "title": "Bibliothèque biblique",
-    "subtitle": "Parcourez des diaporamas, des vidéos et des ressources organisés selon les 66 livres de la Bible.",
+    "title": "Ressources pastorales",
+    "subtitle": "Des supports pédagogiques prêts à l'emploi pour l'étude biblique, les petits groupes et l'école du dimanche, organisés selon les 66 livres de la Bible.",
+    "filterPurpose": "Usage",
+    "usageTip": "Conseil d'utilisation",
+    "downloadSlidesPdf": "Diapositives PDF (16:9)",
+    "downloadHandout": "Support imprimable (A4)",
     "oldTestament": "Ancien Testament",
     "newTestament": "Nouveau Testament",
     "browseByBook": "Parcourir par livre",

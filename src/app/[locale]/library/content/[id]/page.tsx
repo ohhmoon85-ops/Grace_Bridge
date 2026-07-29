@@ -5,7 +5,9 @@ import { createClient } from '@/lib/supabase/server';
 import { hasSupabaseEnv } from '@/lib/supabase/env';
 import type { AppLocale, Content } from '@/types/database';
 import { bookName } from '@/lib/bible/books';
+import { purposeLabel } from '@/lib/library/tags';
 import SlideViewer from '@/components/library/SlideViewer';
+import SlideDownloads from '@/components/library/SlideDownloads';
 import YouTubeEmbed from '@/components/library/YouTubeEmbed';
 import BookmarkButton from '@/components/library/BookmarkButton';
 
@@ -74,14 +76,36 @@ export default async function ContentDetailPage({
         <BookmarkButton contentId={content.id} isLoggedIn={!!user} />
       </div>
 
+      {content.purpose_tags && content.purpose_tags.length > 0 && (
+        <div className="mb-4 flex flex-wrap gap-1.5">
+          {content.purpose_tags.map((tag) => (
+            <span
+              key={tag}
+              className="rounded-full border border-brand-300 px-2.5 py-0.5 text-xs font-medium text-brand-700 dark:text-brand-200"
+            >
+              {purposeLabel(tag, locale as AppLocale)}
+            </span>
+          ))}
+        </div>
+      )}
+
       {content.description && (
-        <p className="mb-5 text-sm leading-relaxed text-gray-600 dark:text-gray-300">
+        <p className="mb-4 text-sm leading-relaxed text-gray-600 dark:text-gray-300">
           {content.description}
         </p>
       )}
 
+      {content.usage_tip && (
+        <div className="mb-5 rounded-xl border border-brand-200 bg-brand-50 px-4 py-3 text-sm text-brand-900 dark:border-brand-900/40 dark:bg-brand-900/20 dark:text-brand-100">
+          <span className="font-semibold">💡 {t('usageTip')}</span> {content.usage_tip}
+        </div>
+      )}
+
       {content.type === 'slide' && content.slide_json && (
-        <SlideViewer data={content.slide_json} />
+        <>
+          <SlideViewer data={content.slide_json} />
+          <SlideDownloads title={content.title} data={content.slide_json} />
+        </>
       )}
 
       {content.type === 'video' && (

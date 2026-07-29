@@ -24,7 +24,7 @@
   "Nav": {
     "home": "Home",
     "sermon": "Sermon",
-    "library": "Library",
+    "library": "Resources",
     "devotion": "Devotion",
     "profile": "Profile",
     "admin": "Admin"
@@ -148,8 +148,12 @@
     "remainingToday": "Remaining today"
   },
   "Library": {
-    "title": "Scripture Library",
-    "subtitle": "Browse slides, videos, and resources organized by the 66 books of the Bible.",
+    "title": "Ministry Resources",
+    "subtitle": "Teaching materials ready to use in Bible study, small groups, and Sunday school — organized by the 66 books of the Bible.",
+    "filterPurpose": "Purpose",
+    "usageTip": "Usage tip",
+    "downloadSlidesPdf": "Slides PDF (16:9)",
+    "downloadHandout": "Printable handout (A4)",
     "oldTestament": "Old Testament",
     "newTestament": "New Testament",
     "browseByBook": "Browse by book",

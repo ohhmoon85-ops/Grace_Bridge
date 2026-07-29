@@ -25,8 +25,8 @@ export default async function LibraryPage({
   const q = typeof sp.q === 'string' ? sp.q : '';
   const lang = typeof sp.lang === 'string' ? sp.lang : '';
   const type = typeof sp.type === 'string' ? sp.type : '';
-  const audience = typeof sp.audience === 'string' ? sp.audience : '';
-  const hasFilter = Boolean(q || lang || type || audience);
+  const purpose = typeof sp.purpose === 'string' ? sp.purpose : '';
+  const hasFilter = Boolean(q || lang || type || purpose);
 
   const t = await getTranslations('Library');
 
@@ -39,7 +39,7 @@ export default async function LibraryPage({
       .eq('published', true);
     if (lang) query = query.eq('language', lang);
     if (type) query = query.eq('type', type);
-    if (audience) query = query.eq('audience', audience);
+    if (purpose) query = query.contains('purpose_tags', [purpose]);
     if (q) {
       const safe = q.replace(/[,()%]/g, ' ').trim();
       if (safe)
@@ -60,7 +60,7 @@ export default async function LibraryPage({
         {t('subtitle')}
       </p>
 
-      <SearchFilterBar q={q} lang={lang} type={type} audience={audience} />
+      <SearchFilterBar q={q} lang={lang} type={type} purpose={purpose} />
 
       {hasFilter ? (
         results.length === 0 ? (
