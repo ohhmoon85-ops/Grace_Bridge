@@ -5,7 +5,14 @@ import { useTranslations, useLocale } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { createClient } from '@/lib/supabase/client';
 
-type Role = 'pastor' | 'member';
+const POSITION_KEYS = [
+  'positionSenior',
+  'positionAssociate',
+  'positionMinister',
+  'positionMissionary',
+  'positionLay',
+  'positionOther',
+] as const;
 
 export default function SignupPage() {
   const t = useTranslations('Auth');
@@ -13,12 +20,12 @@ export default function SignupPage() {
   const e = useTranslations('Errors');
   const locale = useLocale();
 
-  const [role, setRole] = useState<Role>('member');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [displayName, setDisplayName] = useState('');
   const [churchName, setChurchName] = useState('');
-  const [position, setPosition] = useState('');
+  const [position, setPosition] = useState<string>(POSITION_KEYS[0]);
+  const [country, setCountry] = useState('');
   const [error, setError] = useState('');
   const [done, setDone] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -36,9 +43,11 @@ export default function SignupPage() {
         data: {
           app_name: 'grace-bridge',
           display_name: displayName,
-          role,
-          church_name: role === 'pastor' ? churchName : null,
-          position: role === 'pastor' ? position : null,
+          // 목회자 전용 서비스 — 항상 pastor 로 가입, 관리자 승인 전 pending
+          role: 'pastor',
+          church_name: churchName,
+          position: t(position),
+          country,
           locale,
         },
       },
@@ -75,34 +84,14 @@ export default function SignupPage() {
 
   return (
     <div className="mx-auto flex max-w-md flex-col px-4 py-10">
-      <h1 className="mb-6 text-2xl font-bold text-gray-900 dark:text-white">
+      <h1 className="mb-2 text-2xl font-bold text-gray-900 dark:text-white">
         {t('signupTitle')}
       </h1>
+      <p className="mb-6 rounded-lg bg-brand-50 px-3 py-2 text-xs leading-relaxed text-brand-800 dark:bg-brand-900/30 dark:text-brand-200">
+        {t('pastorSignupNote')}
+      </p>
 
       <form onSubmit={handleSubmit} className="space-y-4">
-        {/* Role selector */}
-        <div>
-          <span className="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-200">
-            {t('roleSelect')}
-          </span>
-          <div className="grid grid-cols-2 gap-2">
-            {(['member', 'pastor'] as Role[]).map((r) => (
-              <button
-                key={r}
-                type="button"
-                onClick={() => setRole(r)}
-                className={`tap-target rounded-xl border px-4 py-3 text-sm font-semibold transition ${
-                  role === r
-                    ? 'border-brand-600 bg-brand-50 text-brand-700 dark:bg-brand-900/30 dark:text-brand-200'
-                    : 'border-gray-300 text-gray-600 dark:border-gray-700 dark:text-gray-300'
-                }`}
-              >
-                {r === 'pastor' ? t('rolePastor') : t('roleMember')}
-              </button>
-            ))}
-          </div>
-        </div>
-
         <Field label={t('displayName')}>
           <input
             type="text"
@@ -114,30 +103,39 @@ export default function SignupPage() {
           />
         </Field>
 
-        {role === 'pastor' && (
-          <>
-            <Field label={t('churchName')}>
-              <input
-                type="text"
-                required
-                value={churchName}
-                onChange={(ev) => setChurchName(ev.target.value)}
-                className="input"
-              />
-            </Field>
-            <Field label={t('position')}>
-              <input
-                type="text"
-                value={position}
-                onChange={(ev) => setPosition(ev.target.value)}
-                className="input"
-              />
-            </Field>
-            <p className="rounded-lg bg-brand-50 px-3 py-2 text-xs leading-relaxed text-brand-800 dark:bg-brand-900/30 dark:text-brand-200">
-              {t('pastorNote')}
-            </p>
-          </>
-        )}
+        <Field label={t('churchName')}>
+          <input
+            type="text"
+            required
+            value={churchName}
+            onChange={(ev) => setChurchName(ev.target.value)}
+            className="input"
+          />
+        </Field>
+
+        <Field label={t('position')}>
+          <select
+            value={position}
+            onChange={(ev) => setPosition(ev.target.value)}
+            className="input"
+          >
+            {POSITION_KEYS.map((k) => (
+              <option key={k} value={k}>
+                {t(k)}
+              </option>
+            ))}
+          </select>
+        </Field>
+
+        <Field label={t('country')}>
+          <input
+            type="text"
+            value={country}
+            onChange={(ev) => setCountry(ev.target.value)}
+            className="input"
+            autoComplete="country-name"
+          />
+        </Field>
 
         <Field label={t('email')}>
           <input

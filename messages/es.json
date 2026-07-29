@@ -59,6 +59,14 @@
     "roleMember": "Miembro",
     "churchName": "Nombre de la iglesia",
     "position": "Cargo",
+    "country": "País",
+    "positionSenior": "Pastor principal",
+    "positionAssociate": "Pastor asociado",
+    "positionMinister": "Ministro",
+    "positionMissionary": "Misionero",
+    "positionLay": "Laico",
+    "positionOther": "Otro",
+    "pastorSignupNote": "Tras registrarte, las funciones completas como el redactor de sermones estarán disponibles una vez que un administrador apruebe tu cuenta.",
     "pastorNote": "Al registrarte como pastor, las funciones completas como el redactor de sermones estarán disponibles tras la aprobación del administrador. Hasta entonces, tendrás acceso de miembro.",
     "noAccount": "¿No tienes cuenta?",
     "haveAccount": "¿Ya tienes una cuenta?",
@@ -165,6 +173,11 @@
     "openPdf": "Abrir PDF",
     "watchOnYoutube": "Ver en YouTube",
     "loginToBookmark": "Inicia sesión para guardar contenido."
+  },
+  "MemberNotice": {
+    "title": "Este servicio ahora es solo para pastores",
+    "body": "GraceBridge ahora funciona como una herramienta ministerial para pastores. Para consultas sobre tu cuenta, contacta al administrador.",
+    "signOut": "Cerrar sesión"
   },
   "Devotion": {
     "title": "Devoción de hoy",

@@ -25,9 +25,21 @@ create table if not exists public.profiles (
   role         user_role not null default 'member',
   church_name  text,
   position     text,
+  country      text,
+  church_id    uuid,           -- 향후 교회 단위 구독(FEATURES.CHURCH_CODE)용 스캐폴딩
   locale       text not null default 'ko',
   approved     boolean not null default false,
   created_at   timestamptz not null default now()
+);
+
+-- ---------- churches (향후 교회 단위 구독 스캐폴딩; UI 없음) ----------
+-- Phase 3 — 교회 단위 구독 시 성도가 교회 코드로 무료 제안하는 구조에 사용 예정
+create table if not exists public.churches (
+  id               uuid primary key default gen_random_uuid(),
+  name             text not null,
+  code             text unique,
+  owner_pastor_id  uuid references public.profiles(id) on delete set null,
+  created_at       timestamptz not null default now()
 );
 
 -- ---------- sermons ----------
@@ -123,7 +135,7 @@ security definer
 set search_path = public
 as $$
 begin
-  insert into public.profiles (id, email, display_name, role, church_name, position, locale)
+  insert into public.profiles (id, email, display_name, role, church_name, position, country, locale)
   values (
     new.id,
     new.email,
@@ -131,6 +143,7 @@ begin
     coalesce((new.raw_user_meta_data->>'role')::user_role, 'member'),
     new.raw_user_meta_data->>'church_name',
     new.raw_user_meta_data->>'position',
+    new.raw_user_meta_data->>'country',
     coalesce(new.raw_user_meta_data->>'locale', 'ko')
   )
   on conflict (id) do nothing;

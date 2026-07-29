@@ -1,8 +1,9 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server';
-import { Link } from '@/i18n/navigation';
+import { Link, redirect } from '@/i18n/navigation';
 import { createClient } from '@/lib/supabase/server';
 import { hasSupabaseEnv } from '@/lib/supabase/env';
 import { FEATURES } from '@/lib/features';
+import { getCurrentProfile } from '@/lib/auth';
 import type { Announcement } from '@/types/database';
 
 export default async function LandingPage({
@@ -12,6 +13,12 @@ export default async function LandingPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+
+  // 기존 일반 성도 계정은 목회자 전용 개편 안내 페이지로 유도
+  const profile = await getCurrentProfile();
+  if (profile?.role === 'member') {
+    redirect({ href: '/member-notice', locale });
+  }
   const t = await getTranslations('Landing');
   const c = await getTranslations('Common');
   const a = await getTranslations('Announcements');

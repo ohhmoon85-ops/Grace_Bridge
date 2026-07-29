@@ -59,6 +59,14 @@
     "roleMember": "Mitglied",
     "churchName": "Gemeindename",
     "position": "Amt",
+    "country": "Land",
+    "positionSenior": "Hauptpastor",
+    "positionAssociate": "Mitpastor",
+    "positionMinister": "Prediger",
+    "positionMissionary": "Missionar",
+    "positionLay": "Laie",
+    "positionOther": "Andere",
+    "pastorSignupNote": "Nach Ihrer Registrierung stehen alle Funktionen wie der Predigtschreiber zur Verfügung, sobald ein Administrator Ihr Konto genehmigt hat.",
     "pastorNote": "Wenn Sie sich als Pastor registrieren, stehen nach Genehmigung durch den Administrator alle Funktionen wie der Predigtschreiber zur Verfügung. Bis dahin haben Sie Mitgliederzugang.",
     "noAccount": "Noch kein Konto?",
     "haveAccount": "Bereits ein Konto?",
@@ -165,6 +173,11 @@
     "openPdf": "PDF öffnen",
     "watchOnYoutube": "Auf YouTube ansehen",
     "loginToBookmark": "Melden Sie sich an, um Inhalte zu merken."
+  },
+  "MemberNotice": {
+    "title": "Dieser Dienst ist jetzt nur für Pastoren",
+    "body": "GraceBridge ist jetzt ein Dienstwerkzeug für Pastoren. Bei Kontofragen wenden Sie sich an den Administrator.",
+    "signOut": "Abmelden"
   },
   "Devotion": {
     "title": "Andacht des Tages",

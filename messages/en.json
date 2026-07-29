@@ -59,6 +59,14 @@
     "roleMember": "Member",
     "churchName": "Church name",
     "position": "Position",
+    "country": "Country",
+    "positionSenior": "Senior Pastor",
+    "positionAssociate": "Associate Pastor",
+    "positionMinister": "Minister",
+    "positionMissionary": "Missionary",
+    "positionLay": "Layperson",
+    "positionOther": "Other",
+    "pastorSignupNote": "After you register, full features such as the sermon writer become available once an administrator approves your account.",
     "pastorNote": "When you register as a pastor, full features such as the sermon writer become available after administrator approval. Until then, you have member access.",
     "noAccount": "Don't have an account?",
     "haveAccount": "Already have an account?",
@@ -165,6 +173,11 @@
     "openPdf": "Open PDF",
     "watchOnYoutube": "Watch on YouTube",
     "loginToBookmark": "Sign in to bookmark content."
+  },
+  "MemberNotice": {
+    "title": "This service is now for pastors only",
+    "body": "GraceBridge now operates as a ministry tool for pastors. For account inquiries, please contact the administrator.",
+    "signOut": "Sign out"
   },
   "Devotion": {
     "title": "Today's Devotion",

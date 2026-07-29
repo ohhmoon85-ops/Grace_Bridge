@@ -59,6 +59,14 @@
     "roleMember": "Membre",
     "churchName": "Nom de l'église",
     "position": "Fonction",
+    "country": "Pays",
+    "positionSenior": "Pasteur principal",
+    "positionAssociate": "Pasteur associé",
+    "positionMinister": "Ministre",
+    "positionMissionary": "Missionnaire",
+    "positionLay": "Laïc",
+    "positionOther": "Autre",
+    "pastorSignupNote": "Après votre inscription, les fonctionnalités complètes telles que le rédacteur de prédication sont disponibles une fois votre compte approuvé par un administrateur.",
     "pastorNote": "En vous inscrivant comme pasteur, les fonctionnalités complètes telles que le rédacteur de prédication deviennent disponibles après approbation de l'administrateur. Jusque-là, vous avez un accès membre.",
     "noAccount": "Pas de compte ?",
     "haveAccount": "Vous avez déjà un compte ?",
@@ -165,6 +173,11 @@
     "openPdf": "Ouvrir le PDF",
     "watchOnYoutube": "Voir sur YouTube",
     "loginToBookmark": "Connectez-vous pour ajouter aux favoris."
+  },
+  "MemberNotice": {
+    "title": "Ce service est désormais réservé aux pasteurs",
+    "body": "GraceBridge fonctionne désormais comme un outil pastoral pour les pasteurs. Pour toute question sur votre compte, contactez l'administrateur.",
+    "signOut": "Se déconnecter"
   },
   "Devotion": {
     "title": "Méditation du jour",

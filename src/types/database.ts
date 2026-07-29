@@ -13,6 +13,8 @@ export interface Profile {
   role: UserRole;
   church_name: string | null;
   position: string | null;
+  country: string | null;
+  church_id: string | null;
   locale: AppLocale;
   approved: boolean;
   created_at: string;
