@@ -9,6 +9,7 @@ import {
   NEW_TESTAMENT,
   type BibleBook,
 } from '@/lib/bible/books';
+import { COMMON_SLOTS } from '@/lib/library/structure';
 import SearchFilterBar from '@/components/library/SearchFilterBar';
 import ContentCard from '@/components/library/ContentCard';
 
@@ -60,6 +61,20 @@ export default async function LibraryPage({
     }
     const { data } = await query.order('created_at', { ascending: false });
     results = (data as Content[]) ?? [];
+  }
+
+  // 기본(브라우징) 화면에서 어떤 책에 게시 자료가 있는지 조회 → 나머지는 '준비 중'
+  const availableBooks = new Set<string>();
+  if (!showResults && hasSupabaseEnv()) {
+    const supabase = await createClient();
+    const { data } = await supabase
+      .from('grace_bridge_contents')
+      .select('book')
+      .eq('published', true)
+      .not('book', 'is', null);
+    (data ?? []).forEach((r: { book: string | null }) => {
+      if (r.book) availableBooks.add(r.book);
+    });
   }
 
   return (
@@ -132,15 +147,44 @@ export default async function LibraryPage({
         </>
       ) : (
         <div className="space-y-6">
+          {/* 공통 자료 (성경 전체) */}
+          <section>
+            <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-gray-500">
+              {t('commonResources')}
+            </h2>
+            <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-5">
+              {COMMON_SLOTS.map((slot) => (
+                <div
+                  key={slot.id}
+                  className="rounded-xl border border-dashed border-gray-300 bg-paper-dim px-3 py-3 text-center dark:border-gray-700 dark:bg-gray-900"
+                  title={t('comingSoonNotice')}
+                >
+                  <span className="block text-sm font-medium text-gray-700 dark:text-gray-200">
+                    {slot.labels[locale as AppLocale]}
+                  </span>
+                  <span className="mt-1 inline-block rounded-full bg-gray-200 px-2 py-0.5 text-[10px] text-gray-500 dark:bg-gray-800">
+                    {t('preparing')}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </section>
+
           <Testament
             title={t('oldTestament')}
             books={OLD_TESTAMENT}
             locale={locale as AppLocale}
+            available={availableBooks}
+            preparingLabel={t('preparing')}
+            comingSoon={t('comingSoonNotice')}
           />
           <Testament
             title={t('newTestament')}
             books={NEW_TESTAMENT}
             locale={locale as AppLocale}
+            available={availableBooks}
+            preparingLabel={t('preparing')}
+            comingSoon={t('comingSoonNotice')}
           />
         </div>
       )}
@@ -187,10 +231,16 @@ function Testament({
   title,
   books,
   locale,
+  available,
+  preparingLabel,
+  comingSoon,
 }: {
   title: string;
   books: BibleBook[];
   locale: AppLocale;
+  available: Set<string>;
+  preparingLabel: string;
+  comingSoon: string;
 }) {
   return (
     <section>
@@ -198,15 +248,32 @@ function Testament({
         {title}
       </h2>
       <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4">
-        {books.map((b) => (
-          <Link
-            key={b.id}
-            href={`/library/book/${b.id}`}
-            className="tap-target flex items-center justify-center rounded-xl border border-gray-200 bg-white px-3 py-3 text-center text-sm font-medium text-gray-700 transition hover:border-brand-300 hover:bg-brand-50 dark:border-gray-800 dark:bg-gray-900 dark:text-gray-200 dark:hover:bg-gray-800"
-          >
-            {b.names[locale]}
-          </Link>
-        ))}
+        {books.map((b) => {
+          const ready = available.has(b.id);
+          if (ready) {
+            return (
+              <Link
+                key={b.id}
+                href={`/library/book/${b.id}`}
+                className="tap-target flex items-center justify-center rounded-xl border border-gray-200 bg-white px-3 py-3 text-center text-sm font-medium text-gray-700 transition hover:border-brand-300 hover:bg-brand-50 dark:border-gray-800 dark:bg-gray-900 dark:text-gray-200 dark:hover:bg-gray-800"
+              >
+                {b.names[locale]}
+              </Link>
+            );
+          }
+          return (
+            <div
+              key={b.id}
+              title={comingSoon}
+              className="tap-target flex flex-col items-center justify-center rounded-xl border border-gray-200 bg-gray-50 px-3 py-3 text-center text-sm font-medium text-gray-400 dark:border-gray-800 dark:bg-gray-950/40 dark:text-gray-600"
+            >
+              {b.names[locale]}
+              <span className="mt-0.5 text-[10px] text-gray-400">
+                {preparingLabel}
+              </span>
+            </div>
+          );
+        })}
       </div>
     </section>
   );

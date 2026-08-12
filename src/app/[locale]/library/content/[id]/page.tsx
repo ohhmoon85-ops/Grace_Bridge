@@ -11,6 +11,7 @@ import SlideDownloads from '@/components/library/SlideDownloads';
 import YouTubeEmbed from '@/components/library/YouTubeEmbed';
 import BookmarkButton from '@/components/library/BookmarkButton';
 import ReviewBadge from '@/components/library/ReviewBadge';
+import Layer5Nav from '@/components/library/Layer5Nav';
 
 export default async function ContentDetailPage({
   params,
@@ -108,6 +109,8 @@ export default async function ContentDetailPage({
           <span className="font-semibold">💡 {t('usageTip')}</span> {content.usage_tip}
         </div>
       )}
+
+      {content.type === 'slide' && content.book && <Layer5Nav />}
 
       {content.type === 'slide' && content.slide_json && (
         <>
