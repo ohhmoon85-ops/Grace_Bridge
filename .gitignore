@@ -33,3 +33,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# 로컬 API 키 메모 (커밋 금지)
+API_Key_*.txt

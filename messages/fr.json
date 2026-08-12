@@ -34,6 +34,8 @@
     "title": "Tarifs",
     "subtitle": "Un abonnement unique pour pasteurs, pour la préparation des prédications et les ressources.",
     "comingSoon": "Tarifs de lancement à venir",
+    "launchSpecial": "Offre de lancement",
+    "perMonth": "/ mois",
     "planFree": "Essai gratuit",
     "planStandard": "Standard",
     "rowSermon": "Génération de prédication IA",
@@ -170,6 +172,9 @@
   "Library": {
     "title": "Ressources pastorales",
     "subtitle": "Des supports pédagogiques prêts à l'emploi pour l'étude biblique, les petits groupes et l'école du dimanche, organisés selon les 66 livres de la Bible.",
+    "wholeBible": "Toute la Bible",
+    "wholeBibleDesc": "Contenu couvrant toute la Bible",
+    "addResource": "Ajouter une ressource",
     "filterPurpose": "Usage",
     "usageTip": "Conseil d'utilisation",
     "downloadSlidesPdf": "Diapositives PDF (16:9)",

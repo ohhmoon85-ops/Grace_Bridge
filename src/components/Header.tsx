@@ -19,7 +19,7 @@ export default async function Header({
   return (
     <header className="sticky top-0 z-30 border-b border-gray-200 bg-white/90 backdrop-blur dark:border-gray-800 dark:bg-gray-950/90">
       <div className="mx-auto flex h-14 max-w-5xl items-center justify-between px-4">
-        <Link href="/" className="flex items-center gap-2">
+        <Link href="/" className="flex shrink-0 items-center gap-2">
           <span className="text-xl" aria-hidden>
             🕊️
           </span>
@@ -32,13 +32,13 @@ export default async function Header({
           <DesktopLinks role={role} />
         </nav>
 
-        <div className="flex items-center gap-1">
+        <div className="flex shrink-0 flex-nowrap items-center gap-0.5 sm:gap-1">
           <ThemeToggle />
           <LanguageSwitcher />
           {isGuest ? (
             <Link
               href="/login"
-              className="tap-target flex items-center rounded-lg bg-brand-600 px-3 py-2 text-sm font-semibold text-white hover:bg-brand-700"
+              className="tap-target flex items-center whitespace-nowrap rounded-lg bg-brand-600 px-3 py-2 text-sm font-semibold text-white hover:bg-brand-700"
             >
               {t('signIn')}
             </Link>
@@ -50,7 +50,7 @@ export default async function Header({
               <form action={signOutAction}>
                 <button
                   type="submit"
-                  className="tap-target rounded-lg px-3 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
+                  className="tap-target whitespace-nowrap rounded-lg px-2 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100 sm:px-3 dark:text-gray-300 dark:hover:bg-gray-800"
                 >
                   {t('signOut')}
                 </button>

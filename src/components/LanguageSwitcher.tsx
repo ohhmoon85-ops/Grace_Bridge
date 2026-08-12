@@ -25,12 +25,12 @@ export default function LanguageSwitcher() {
         type="button"
         onClick={() => setOpen((v) => !v)}
         disabled={isPending}
-        className="tap-target flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-800"
+        className="tap-target flex items-center gap-1 rounded-lg px-2 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 sm:px-3 dark:text-gray-200 dark:hover:bg-gray-800"
         aria-haspopup="listbox"
         aria-expanded={open}
       >
         <span aria-hidden>🌐</span>
-        <span>{localeNames[locale as Locale]}</span>
+        <span className="hidden sm:inline">{localeNames[locale as Locale]}</span>
       </button>
       {open && (
         <>

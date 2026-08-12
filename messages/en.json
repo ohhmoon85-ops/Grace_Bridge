@@ -34,6 +34,8 @@
     "title": "Pricing",
     "subtitle": "A single pastor subscription for sermon prep and ministry resources.",
     "comingSoon": "Launch pricing coming soon",
+    "launchSpecial": "Launch special",
+    "perMonth": "/ mo",
     "planFree": "Free trial",
     "planStandard": "Standard",
     "rowSermon": "AI sermon generation",
@@ -170,6 +172,9 @@
   "Library": {
     "title": "Ministry Resources",
     "subtitle": "Teaching materials ready to use in Bible study, small groups, and Sunday school — organized by the 66 books of the Bible.",
+    "wholeBible": "Whole Bible",
+    "wholeBibleDesc": "Content spanning the whole Bible",
+    "addResource": "Add resource",
     "filterPurpose": "Purpose",
     "usageTip": "Usage tip",
     "downloadSlidesPdf": "Slides PDF (16:9)",

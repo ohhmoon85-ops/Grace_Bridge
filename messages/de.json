@@ -34,6 +34,8 @@
     "title": "Preise",
     "subtitle": "Ein einziges Pastoren-Abonnement für Predigtvorbereitung und Materialien.",
     "comingSoon": "Einführungspreise in Kürze",
+    "launchSpecial": "Einführungsangebot",
+    "perMonth": "/ Monat",
     "planFree": "Kostenlose Testphase",
     "planStandard": "Standard",
     "rowSermon": "KI-Predigterstellung",
@@ -170,6 +172,9 @@
   "Library": {
     "title": "Materialien für den Dienst",
     "subtitle": "Sofort einsetzbare Lehrmaterialien für Bibelstudium, Kleingruppen und Sonntagsschule, geordnet nach den 66 Büchern der Bibel.",
+    "wholeBible": "Ganze Bibel",
+    "wholeBibleDesc": "Inhalte über die ganze Bibel",
+    "addResource": "Ressource hinzufügen",
     "filterPurpose": "Verwendung",
     "usageTip": "Nutzungstipp",
     "downloadSlidesPdf": "Folien-PDF (16:9)",

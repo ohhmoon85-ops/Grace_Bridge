@@ -34,6 +34,8 @@
     "title": "요금제",
     "subtitle": "설교 준비와 목회 자료를 위한 목회자 단일 구독입니다.",
     "comingSoon": "출시 기념 가격 준비 중",
+    "launchSpecial": "출시 기념 특가",
+    "perMonth": "/ 월",
     "planFree": "무료 체험",
     "planStandard": "스탠다드",
     "rowSermon": "AI 설교 생성",
@@ -170,6 +172,9 @@
   "Library": {
     "title": "목회 자료실",
     "subtitle": "성경공부·소그룹·주일학교 현장에서 바로 쓰는 교육 자료를 성경 66권 구조로 정리했습니다.",
+    "wholeBible": "성경 전체",
+    "wholeBibleDesc": "성경 전체를 아우르는 자료",
+    "addResource": "자료 추가",
     "filterPurpose": "용도",
     "usageTip": "이 자료 활용 팁",
     "downloadSlidesPdf": "슬라이드 PDF (16:9)",

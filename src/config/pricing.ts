@@ -6,8 +6,8 @@
 
 export const PRICING = {
   currency: 'KRW',
-  /** 출시 기념 가격 미정 → 화면에는 '준비 중' 표기 */
-  standardPriceLabel: null as string | null,
+  /** 스탠다드 월 구독가 (출시 기념 특가) */
+  standardPriceLabel: '₩9,900' as string | null,
   free: {
     sermonTotal: 3, // AI 설교 생성 총 3회
     savedSermons: 3, // 설교 보관함 3편

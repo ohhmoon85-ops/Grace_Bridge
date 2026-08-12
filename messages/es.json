@@ -34,6 +34,8 @@
     "title": "Precios",
     "subtitle": "Una única suscripción para pastores, para la preparación de sermones y los recursos.",
     "comingSoon": "Precios de lanzamiento próximamente",
+    "launchSpecial": "Oferta de lanzamiento",
+    "perMonth": "/ mes",
     "planFree": "Prueba gratuita",
     "planStandard": "Estándar",
     "rowSermon": "Generación de sermones con IA",
@@ -170,6 +172,9 @@
   "Library": {
     "title": "Recursos pastorales",
     "subtitle": "Materiales de enseñanza listos para usar en el estudio bíblico, los grupos pequeños y la escuela dominical, organizados según los 66 libros de la Biblia.",
+    "wholeBible": "Toda la Biblia",
+    "wholeBibleDesc": "Contenido que abarca toda la Biblia",
+    "addResource": "Añadir recurso",
     "filterPurpose": "Uso",
     "usageTip": "Consejo de uso",
     "downloadSlidesPdf": "Diapositivas PDF (16:9)",

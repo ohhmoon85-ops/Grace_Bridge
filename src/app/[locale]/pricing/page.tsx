@@ -1,5 +1,6 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
+import { PRICING } from '@/config/pricing';
 
 export default async function PricingPage({
   params,
@@ -53,9 +54,23 @@ export default async function PricingPage({
           <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
             {t('planStandard')}
           </h2>
-          <p className="mt-1 inline-block rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-700 dark:bg-brand-900/40 dark:text-brand-200">
-            {t('comingSoon')}
-          </p>
+          {PRICING.standardPriceLabel ? (
+            <>
+              <p className="mt-1 text-2xl font-bold text-gray-900 dark:text-white">
+                {PRICING.standardPriceLabel}{' '}
+                <span className="text-sm font-normal text-gray-500">
+                  {t('perMonth')}
+                </span>
+              </p>
+              <span className="mt-1 inline-block rounded-full bg-gold-soft px-3 py-1 text-xs font-semibold text-brand-800 dark:bg-gold/20 dark:text-gold-soft">
+                {t('launchSpecial')}
+              </span>
+            </>
+          ) : (
+            <p className="mt-1 inline-block rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-700 dark:bg-brand-900/40 dark:text-brand-200">
+              {t('comingSoon')}
+            </p>
+          )}
           <ul className="mt-4 space-y-2 text-sm text-gray-600 dark:text-gray-300">
             {rows.map((r) => (
               <li key={r.label} className="flex justify-between gap-3">
