@@ -148,12 +148,20 @@ function openPrintWindow(html: string) {
 }
 
 /** 슬라이드 발표용 PDF (16:9, 한 장에 슬라이드 하나) */
-export function exportSlidesPdf(title: string, slides: SlideItem[]) {
+export function exportSlidesPdf(
+  title: string,
+  slides: SlideItem[],
+  footer?: string
+) {
+  const foot = footer
+    ? `<div class="foot">${escHtml(footer)} · GraceBridge</div>`
+    : `<div class="foot">GraceBridge</div>`;
   const pages = slides
     .map(
       (s) => `<section class="slide">
         <h2>${escHtml(s.title)}</h2>
         <p>${escHtml(s.body)}</p>
+        ${foot}
       </section>`
     )
     .join('\n');
@@ -165,6 +173,7 @@ export function exportSlidesPdf(title: string, slides: SlideItem[]) {
       * { box-sizing: border-box; }
       body { margin: 0; font-family: ${SLIDE_FONT}; }
       .slide {
+        position: relative;
         width: 1280px; height: 720px; padding: 90px;
         display: flex; flex-direction: column; align-items: center; justify-content: center;
         text-align: center; page-break-after: always;
@@ -172,11 +181,17 @@ export function exportSlidesPdf(title: string, slides: SlideItem[]) {
       }
       .slide h2 { font-size: 52px; margin: 0 0 28px; }
       .slide p { font-size: 32px; line-height: 1.5; margin: 0; max-width: 1000px; white-space: pre-wrap; }
+      .foot { position: absolute; bottom: 28px; left: 0; right: 0; text-align: center;
+        font-size: 18px; color: rgba(255,255,255,0.7); }
     </style></head><body>${pages}</body></html>`);
 }
 
 /** 인쇄용 유인물 PDF (A4 세로, 페이지당 슬라이드 2장 + 메모 칸) */
-export function exportSlidesHandout(title: string, slides: SlideItem[]) {
+export function exportSlidesHandout(
+  title: string,
+  slides: SlideItem[],
+  footer?: string
+) {
   const items = slides
     .map(
       (s, i) => `<div class="item">
@@ -214,8 +229,11 @@ export function exportSlidesHandout(title: string, slides: SlideItem[]) {
       .memo-label { font-size: 10px; color: #999; }
       .lines { margin-top: 6px; height: 88mm;
         background-image: repeating-linear-gradient(#fff 0, #fff 9mm, #E5E2D6 9mm, #E5E2D6 9.3mm); }
+      .doc-foot { margin-top: 4mm; padding-top: 3mm; border-top: 1px solid #DAD6C8;
+        text-align: center; font-size: 10px; color: #999; }
     </style></head><body>
     <h1>${escHtml(title)}</h1>
     ${items}
+    <div class="doc-foot">${footer ? escHtml(footer) + ' · ' : ''}GraceBridge</div>
     </body></html>`);
 }

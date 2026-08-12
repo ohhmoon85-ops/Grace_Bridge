@@ -33,6 +33,9 @@ export default function ContentForm({
     initial?.purpose_tags ?? []
   );
   const [usageTip, setUsageTip] = useState(initial?.usage_tip ?? '');
+  const [reviewedBy, setReviewedBy] = useState(
+    initial?.reviewed_by ?? '이성규 목사'
+  );
   const [videoUrl, setVideoUrl] = useState(initial?.video_url ?? '');
   const [fileUrl, setFileUrl] = useState(initial?.file_url ?? '');
   const [design, setDesign] = useState<SlideData['design']>(
@@ -78,6 +81,7 @@ export default function ContentForm({
       published,
       purpose_tags: purposeTags as ContentInput['purpose_tags'],
       usage_tip: usageTip,
+      reviewed_by: reviewedBy,
       video_url: videoUrl,
       file_url: fileUrl,
       slide_json:
@@ -292,6 +296,15 @@ export default function ContentForm({
         </div>
       )}
 
+      <div>
+        <label className={labelC}>검수자 (게시 시 표기)</label>
+        <input
+          value={reviewedBy}
+          onChange={(e) => setReviewedBy(e.target.value)}
+          className={input}
+        />
+      </div>
+
       <label className="flex items-center gap-2 text-sm">
         <input
           type="checkbox"
@@ -299,7 +312,7 @@ export default function ContentForm({
           onChange={(e) => setPublished(e.target.checked)}
           className="h-4 w-4"
         />
-        게시 (published)
+        검수 완료 및 게시 (published)
       </label>
 
       {error && (

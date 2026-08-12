@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { z } from 'zod';
 import { requireAdminApi } from '@/lib/admin';
 import { createClient } from '@/lib/supabase/server';
-import { contentSchema, normalizeContent } from '@/lib/content/schema';
+import { contentSchema, normalizeContent, DEFAULT_REVIEWER } from '@/lib/content/schema';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -27,10 +27,16 @@ export async function PATCH(
     return NextResponse.json({ error: 'invalid_input' }, { status: 400 });
   }
 
-  const updates =
+  const updates: Record<string, unknown> =
     'type' in parsed.data
       ? normalizeContent(parsed.data)
       : { published: parsed.data.published };
+
+  // 게시로 전환 시 검수일 기록 (검수자 없으면 기본값)
+  if (updates.published === true) {
+    updates.reviewed_at = new Date().toISOString();
+    if (!updates.reviewed_by) updates.reviewed_by = DEFAULT_REVIEWER;
+  }
 
   const supabase = await createClient();
   const { error } = await supabase.from('grace_bridge_contents').update(updates).eq('id', id);

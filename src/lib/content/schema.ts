@@ -24,8 +24,12 @@ export const contentSchema = z.object({
   slide_json: slideDataSchema.nullable().optional(),
   video_url: z.string().max(500).optional().default(''),
   file_url: z.string().max(500).optional().default(''),
+  reviewed_by: z.string().max(120).optional().default(''),
   published: z.boolean().default(false),
 });
+
+/** 검수자 기본값 */
+export const DEFAULT_REVIEWER = '이성규 목사';
 
 export type ContentInput = z.infer<typeof contentSchema>;
 
@@ -43,6 +47,7 @@ export function normalizeContent(input: ContentInput) {
     slide_json: input.type === 'slide' ? (input.slide_json ?? null) : null,
     video_url: input.type === 'video' ? input.video_url || null : null,
     file_url: input.type === 'pdf' ? input.file_url || null : null,
+    reviewed_by: input.reviewed_by?.trim() || DEFAULT_REVIEWER,
     published: input.published,
   };
 }

@@ -39,6 +39,7 @@ export default async function EditContentPage({
           published: c.published,
           purpose_tags: c.purpose_tags ?? [],
           usage_tip: c.usage_tip ?? '',
+          reviewed_by: c.reviewed_by ?? '이성규 목사',
           video_url: c.video_url ?? '',
           file_url: c.file_url ?? '',
           slide_json: c.slide_json,

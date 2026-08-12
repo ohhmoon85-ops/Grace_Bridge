@@ -10,6 +10,7 @@ import SlideViewer from '@/components/library/SlideViewer';
 import SlideDownloads from '@/components/library/SlideDownloads';
 import YouTubeEmbed from '@/components/library/YouTubeEmbed';
 import BookmarkButton from '@/components/library/BookmarkButton';
+import ReviewBadge from '@/components/library/ReviewBadge';
 
 export default async function ContentDetailPage({
   params,
@@ -55,6 +56,13 @@ export default async function ContentDetailPage({
 
       <div className="mb-4 flex flex-wrap items-start justify-between gap-3">
         <div>
+          {content.reviewed_at && (
+            <ReviewBadge
+              reviewedBy={content.reviewed_by}
+              reviewedAt={content.reviewed_at}
+              className="mb-2"
+            />
+          )}
           <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
             {content.title}
           </h1>
@@ -104,7 +112,12 @@ export default async function ContentDetailPage({
       {content.type === 'slide' && content.slide_json && (
         <>
           <SlideViewer data={content.slide_json} />
-          <SlideDownloads title={content.title} data={content.slide_json} />
+          <SlideDownloads
+            title={content.title}
+            data={content.slide_json}
+            reviewedBy={content.reviewed_by}
+            reviewedAt={content.reviewed_at}
+          />
         </>
       )}
 

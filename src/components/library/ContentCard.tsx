@@ -6,6 +6,7 @@ import type { Content, AppLocale } from '@/types/database';
 import { bookName } from '@/lib/bible/books';
 import { purposeLabel } from '@/lib/library/tags';
 import { youtubeThumb } from '@/lib/youtube';
+import ReviewBadge from './ReviewBadge';
 
 const TYPE_ICON: Record<string, string> = {
   slide: '🖼️',
@@ -54,6 +55,13 @@ export default function ContentCard({ content }: { content: Content }) {
         )}
       </div>
       <div className="flex flex-1 flex-col p-4">
+        {content.reviewed_at && (
+          <ReviewBadge
+            reviewedBy={content.reviewed_by}
+            reviewedAt={content.reviewed_at}
+            className="mb-2 self-start"
+          />
+        )}
         <h3 className="line-clamp-2 font-semibold text-gray-900 dark:text-white">
           {content.title}
         </h3>

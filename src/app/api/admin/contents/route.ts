@@ -18,10 +18,16 @@ export async function POST(request: Request) {
     );
   }
 
+  const normalized = normalizeContent(parsed.data);
   const supabase = await createClient();
   const { data, error } = await supabase
     .from('grace_bridge_contents')
-    .insert({ ...normalizeContent(parsed.data), created_by: guard.profile.id })
+    .insert({
+      ...normalized,
+      created_by: guard.profile.id,
+      // 게시 시 검수일 기록
+      reviewed_at: normalized.published ? new Date().toISOString() : null,
+    })
     .select('id')
     .single();
 
