@@ -27,6 +27,7 @@ create table if not exists public.profiles (
   position     text,
   country      text,
   church_id    uuid,           -- 향후 교회 단위 구독(FEATURES.CHURCH_CODE)용 스캐폴딩
+  plan         text not null default 'free',   -- 'free' | 'standard' (구독)
   locale       text not null default 'ko',
   approved     boolean not null default false,
   created_at   timestamptz not null default now()

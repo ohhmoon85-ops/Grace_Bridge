@@ -10,6 +10,7 @@ const schema = z.object({
   id: z.string().uuid(),
   role: z.enum(['admin', 'pastor', 'member']).optional(),
   approved: z.boolean().optional(),
+  plan: z.enum(['free', 'standard']).optional(),
 });
 
 export async function PATCH(request: Request) {

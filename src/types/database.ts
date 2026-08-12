@@ -2,6 +2,7 @@
 // See supabase/schema.sql for the canonical definitions.
 
 export type UserRole = 'admin' | 'pastor' | 'member' | 'guest';
+export type Plan = 'free' | 'standard';
 export type ContentType = 'slide' | 'video' | 'pdf';
 export type DevotionalStatus = 'draft' | 'approved' | 'published';
 export type AppLocale = 'ko' | 'en' | 'fr' | 'es' | 'de';
@@ -15,6 +16,7 @@ export interface Profile {
   position: string | null;
   country: string | null;
   church_id: string | null;
+  plan: Plan;
   locale: AppLocale;
   approved: boolean;
   created_at: string;

@@ -31,6 +31,7 @@ create table if not exists public.grace_bridge_profiles (
   position     text,
   country      text,
   church_id    uuid,
+  plan         text not null default 'free',   -- 'free' | 'standard' (구독)
   locale       text not null default 'ko',
   approved     boolean not null default false,
   created_at   timestamptz not null default now()

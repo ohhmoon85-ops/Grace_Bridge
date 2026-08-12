@@ -5,6 +5,7 @@ import { sermonInputSchema } from '@/lib/sermon/schema';
 import { buildSystemPrompt, buildUserPrompt } from '@/lib/sermon/prompt';
 import {
   checkDailyLimit,
+  checkSermonQuota,
   logUsage,
   DAILY_LIMITS,
 } from '@/lib/sermon/rate-limit';
@@ -42,17 +43,30 @@ export async function POST(request: Request) {
   input.summaryMode = summaryMode;
 
   const action = summaryMode ? 'sermon_summary' : 'sermon_full';
-  const limit = summaryMode
-    ? DAILY_LIMITS.memberSummary
-    : DAILY_LIMITS.pastorFull;
 
   // 4. 사용량 제한
-  const limitCheck = await checkDailyLimit(profile.id, action, limit);
-  if (!limitCheck.allowed) {
-    return NextResponse.json(
-      { error: 'rate_limited', remaining: 0 },
-      { status: 429 }
+  //  - 요약(미승인/성도): 1일 3회
+  //  - 설교 전문: 플랜별 쿼터 (free 총 3편 / standard 월 30편 / admin 무제한)
+  let remaining = 0;
+  if (summaryMode) {
+    const check = await checkDailyLimit(
+      profile.id,
+      action,
+      DAILY_LIMITS.memberSummary
     );
+    if (!check.allowed) {
+      return NextResponse.json({ error: 'rate_limited', remaining: 0 }, { status: 429 });
+    }
+    remaining = check.remaining;
+  } else {
+    const quota = await checkSermonQuota(profile);
+    if (!quota.allowed) {
+      return NextResponse.json(
+        { error: 'rate_limited', remaining: 0, period: quota.period },
+        { status: 429 }
+      );
+    }
+    remaining = quota.remaining;
   }
 
   // 5. 프롬프트 구성
@@ -88,7 +102,7 @@ export async function POST(request: Request) {
         });
 
         await messageStream.finalMessage();
-        send('done', { remaining: limitCheck.remaining - 1 });
+        send('done', { remaining: Math.max(0, remaining - 1) });
       } catch (err) {
         const message =
           err instanceof Error ? err.message : 'generation_failed';

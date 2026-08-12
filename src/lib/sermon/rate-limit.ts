@@ -1,41 +1,95 @@
 import { createAdminClient } from '@/lib/supabase/admin';
+import { PRICING } from '@/config/pricing';
+import type { Profile } from '@/types/database';
 
-// 역할별 1일 생성 한도 (문서 8. 보안·품질 요구사항)
+// 성도 요약 미리보기 1일 한도 (미승인 목회자/성도)
 export const DAILY_LIMITS = {
-  pastorFull: 10, // 목회자: 설교 전문 1일 10회
-  memberSummary: 3, // 성도: 요약 미리보기 1일 3회
+  memberSummary: 3,
 } as const;
 
 function startOfTodayISO(): string {
   const now = new Date();
-  const start = new Date(
+  return new Date(
     Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate())
-  );
-  return start.toISOString();
+  ).toISOString();
+}
+
+function startOfMonthISO(): string {
+  const now = new Date();
+  return new Date(
+    Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), 1)
+  ).toISOString();
+}
+
+async function countUsage(
+  userId: string,
+  action: string,
+  sinceISO?: string
+): Promise<number> {
+  const admin = createAdminClient();
+  let query = admin
+    .from('grace_bridge_usage_logs')
+    .select('*', { count: 'exact', head: true })
+    .eq('user_id', userId)
+    .eq('action', action);
+  if (sinceISO) query = query.gte('created_at', sinceISO);
+  const { count } = await query;
+  return count ?? 0;
 }
 
 /**
- * 오늘 사용량을 확인합니다. 한도를 넘지 않았으면 allowed=true.
- * 로그 기록은 별도의 logUsage 로 수행합니다.
+ * 오늘 사용량(요약 미리보기 등) 확인.
  */
 export async function checkDailyLimit(
   userId: string,
   action: string,
   limit: number
 ): Promise<{ allowed: boolean; used: number; remaining: number }> {
-  const admin = createAdminClient();
-  const { count } = await admin
-    .from('grace_bridge_usage_logs')
-    .select('*', { count: 'exact', head: true })
-    .eq('user_id', userId)
-    .eq('action', action)
-    .gte('created_at', startOfTodayISO());
+  const used = await countUsage(userId, action, startOfTodayISO());
+  return { allowed: used < limit, used, remaining: Math.max(0, limit - used) };
+}
 
-  const used = count ?? 0;
+export interface QuotaResult {
+  allowed: boolean;
+  used: number;
+  remaining: number;
+  limit: number;
+  period: 'month' | 'total' | 'none';
+}
+
+/**
+ * 설교 전문 생성 쿼터.
+ *  - admin: 무제한
+ *  - standard 플랜: 이번 달 30편 (PRICING.standard.sermonPerMonth)
+ *  - free 플랜: 총 3편 (PRICING.free.sermonTotal)
+ */
+export async function checkSermonQuota(profile: Profile): Promise<QuotaResult> {
+  if (profile.role === 'admin') {
+    return { allowed: true, used: 0, remaining: Infinity, limit: Infinity, period: 'none' };
+  }
+
+  const plan = profile.plan ?? 'free';
+  if (plan === 'standard') {
+    const limit = PRICING.standard.sermonPerMonth;
+    const used = await countUsage(profile.id, 'sermon_full', startOfMonthISO());
+    return {
+      allowed: used < limit,
+      used,
+      remaining: Math.max(0, limit - used),
+      limit,
+      period: 'month',
+    };
+  }
+
+  // free: 총 누적(평생) 기준
+  const limit = PRICING.free.sermonTotal;
+  const used = await countUsage(profile.id, 'sermon_full');
   return {
     allowed: used < limit,
     used,
     remaining: Math.max(0, limit - used),
+    limit,
+    period: 'total',
   };
 }
 

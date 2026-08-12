@@ -90,6 +90,19 @@ export default function MembersTable({ initial }: { initial: Profile[] }) {
                   <option value="pastor">목회자</option>
                   <option value="admin">관리자</option>
                 </select>
+
+                <select
+                  value={m.plan ?? 'free'}
+                  onChange={(e) =>
+                    patch(m.id, { plan: e.target.value as Profile['plan'] })
+                  }
+                  disabled={busy === m.id}
+                  title="구독 플랜"
+                  className="rounded-lg border border-gray-300 bg-transparent px-2 py-1.5 text-xs dark:border-gray-700"
+                >
+                  <option value="free">무료</option>
+                  <option value="standard">스탠다드</option>
+                </select>
               </div>
             </div>
           </div>
