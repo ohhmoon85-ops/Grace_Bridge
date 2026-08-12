@@ -75,6 +75,8 @@ create table if not exists public.grace_bridge_contents (
   published    boolean not null default false,
   view_count   integer not null default 0,
   created_by   uuid references public.grace_bridge_profiles(id) on delete set null,
+  reviewed_by  text,                          -- 검수자명 (기본: 이성규 목사)
+  reviewed_at  timestamptz,                   -- 검수·게시 일시
   created_at   timestamptz not null default now()
 );
 

@@ -58,6 +58,8 @@ export interface Content {
   published: boolean;
   view_count: number;
   created_by: string | null;
+  reviewed_by: string | null;
+  reviewed_at: string | null;
   created_at: string;
 }
 

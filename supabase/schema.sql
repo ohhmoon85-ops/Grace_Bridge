@@ -72,6 +72,8 @@ create table if not exists public.contents (
   published   boolean not null default false,
   view_count  integer not null default 0,
   created_by  uuid references public.profiles(id) on delete set null,
+  reviewed_by text,
+  reviewed_at timestamptz,
   created_at  timestamptz not null default now()
 );
 
