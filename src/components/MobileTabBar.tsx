@@ -16,6 +16,7 @@ export default function MobileTabBar({ role }: { role: UserRole | 'guest' }) {
     ...(FEATURES.DEVOTIONAL
       ? [{ href: '/devotion', label: t('devotion'), icon: '🙏' }]
       : []),
+    { href: '/pricing', label: t('pricing'), icon: '💳' },
     { href: '/profile', label: t('profile'), icon: '👤' },
   ];
 
